@@ -60,3 +60,6 @@ shape = SubResource("CircleShape2D_w8eq7")
 libraries = {
 "": SubResource("AnimationLibrary_c3rcm")
 }
+
+[connection signal="mouse_entered" from="Shape" to="." method="_on_shape_mouse_entered"]
+[connection signal="mouse_exited" from="Shape" to="." method="_on_shape_mouse_exited"]
