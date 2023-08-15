@@ -18,7 +18,6 @@ func _on_drag(node: Jack):
 	drag = node
 	
 func _on_drop(node: Jack):
-	if node == drag:
-		drag = null
-		drop = null
+	if drag == null or drop == null:
 		return
+	print_debug("connect " + str(drag.name) + " with " + str(drop.name))
