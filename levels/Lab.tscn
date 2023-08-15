@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=7 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
-[ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
 [ext_resource type="Texture2D" uid="uid://wjsaeatnm74p" path="res://assets/visual/light.png" id="2_x2ckh"]
 [ext_resource type="PackedScene" uid="uid://d11v00xqu2xym" path="res://components/radio/Radio.tscn" id="4_yen6p"]
 [ext_resource type="AudioStream" uid="uid://cwte4lqwvpwq8" path="res://assets/audio/MellowOnDaRoof.mp3" id="5_oled1"]
@@ -27,7 +26,6 @@ position = Vector2(31, 78)
 stream = ExtResource("5_oled1")
 volume_db = -5.0
 autoplay = true
-bus = &"Radio"
 
 [node name="RadioScreen" parent="." instance=ExtResource("6_8ncxa")]
 position = Vector2(39, 52)

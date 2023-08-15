@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpji2x3ql50cx"]
 
-[ext_resource type="Texture2D" uid="uid://ddqpbnmk0xeqk" path="res://visuals/jack.png" id="1_vm31e"]
+[ext_resource type="Texture2D" uid="uid://ddqpbnmk0xeqk" path="res://assets/visual/jack.png" id="1_vm31e"]
 [ext_resource type="Script" path="res://components/wires/jack.gd" id="2_u37hq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8eq7"]

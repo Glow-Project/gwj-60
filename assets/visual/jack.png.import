@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddqpbnmk0xeqk"
-path="res://.godot/imported/jack.png-66cdd1046e2a432ad6456c804e6684de.ctex"
+path="res://.godot/imported/jack.png-966f1cf6bc54740ed8fe9755f75d7daf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/jack.png"
-dest_files=["res://.godot/imported/jack.png-66cdd1046e2a432ad6456c804e6684de.ctex"]
+source_file="res://assets/visual/jack.png"
+dest_files=["res://.godot/imported/jack.png-966f1cf6bc54740ed8fe9755f75d7daf.ctex"]
 
 [params]
 

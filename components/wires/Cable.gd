@@ -2,18 +2,10 @@ extends Line2D
 
 class_name Cable
 
-var source :Jack = null
-var destination :Jack = null
+var source: Jack = null : set = set_source
+var destination: Jack = null : set = set_destination
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func set_source(src :Jack):
+func set_source(src: Jack):
 	source = src
 	modulate = src.modulate
 	if points.size() == 0:
@@ -21,14 +13,20 @@ func set_source(src :Jack):
 	else:
 		set_point_position(0, src.position)
 
-func set_destination(dst :Jack):
+func set_destination(dst: Jack):
 	destination = dst
 	if points.size() == 1:
 		add_point(dst.position)
 	else:
 		set_point_position(1, dst.position)
-	
-func is_connected_to(jack :Jack) -> bool:
+
+func update_destination(pos: Vector2) -> void:
+	if points.size() == 1:
+		add_point(pos)
+	else:
+		set_point_position(1, pos)
+
+func is_connected_to(jack: Jack) -> bool:
 	return source == jack or destination == jack
 
 func is_fully_connected() -> bool:
