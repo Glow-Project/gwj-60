@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cea60p5gkpqr6"]
+
+[ext_resource type="Script" path="res://levels/logicgates/logicgates.gd" id="1_pyl2h"]
+[ext_resource type="PackedScene" uid="uid://xefx38pnhca" path="res://components/logicgates/gate.tscn" id="1_sl0af"]
+[ext_resource type="PackedScene" uid="uid://mponf2h3fpq4" path="res://components/logicgates/GateConnection.tscn" id="2_hem1n"]
+
+[node name="LogicGates" type="Node2D"]
+script = ExtResource("1_pyl2h")
+
+[node name="GateConnectionIn1And" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../In1")
+destination = NodePath("../And")
+
+[node name="GateConnectionIn2And" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../In2")
+destination = NodePath("../And")
+
+[node name="GateConnectionAndOut" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../And")
+destination = NodePath("../Out")
+
+[node name="In1" parent="." instance=ExtResource("1_sl0af")]
+position = Vector2(64, 40)
+type = 6
+
+[node name="In2" parent="." instance=ExtResource("1_sl0af")]
+position = Vector2(64, 96)
+type = 6
+
+[node name="And" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
+position = Vector2(168, 64)
+input1 = NodePath("../GateConnectionIn1And")
+input2 = NodePath("../GateConnectionIn2And")
+
+[node name="Out" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
+position = Vector2(256, 64)
+type = 5
+input1 = NodePath("../GateConnectionAndOut")
