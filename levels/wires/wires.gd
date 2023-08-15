@@ -1,55 +1,58 @@
 extends Node2D
 
-var source :Jack = null
-var destination :Jack = null
+var source: Jack = null
+var destination: Jack = null
 
-var current_line :Line2D
+var current_cable: Cable
 
-var pressed :bool = false
+var pressed: bool = false
 
-var cable_prototype :PackedScene = preload("res://components/wires/Cable.tscn")
+var cable_prototype: PackedScene = preload("res://components/wires/Cable.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	var taken :Array
+	for node in $Jacks.get_children():
+		node = node as Jack
+		
+		while true:
+			var x_offset = randi_range(
+				$JackBoundary.position.x - $JackBoundary.shape.get_rect().size.x/2,
+				$JackBoundary.position.x + $JackBoundary.shape.get_rect().size.x/2
+			)
+			var y_offset = randi_range(
+				$JackBoundary.position.y - $JackBoundary.shape.get_rect().size.y/2,
+				$JackBoundary.position.y + $JackBoundary.shape.get_rect().size.y/2
+			)
+			
+			var new_position = Vector2(x_offset - x_offset % 20,y_offset - y_offset % 20)
+			if not new_position in taken:
+				node.position = new_position
+				taken.append(new_position)
+				break
 
 func _input(event):
-	# motion handler for dragging
-	if event is InputEventMouseMotion:
-		if current_line == null:
-			return
-		
-		if current_line.points.size() == 1:
-			current_line.add_point(event.position)
-		else:
-			current_line.set_point_position(1, event.position)
+	match event.get_class():
+		"InputEventMouseMotion":
+			on_mouse_move(event)
+		"InputEventMouseButton":
+			on_mouse_click(event)
+
+func on_mouse_move(event: InputEventMouseMotion) -> void:
+	if current_cable != null:
+		current_cable.update_destination(event.position) 
+
+func on_mouse_click(event: InputEventMouseButton) -> void:
+	# if no jack got selected, we have nothing to do
+	var selected_jack: Jack = find_jack_in_use()
+	if selected_jack == null:
 		return
-	
-	if not event is InputEventMouseButton:
-		return
-	
-	event = event as InputEventMouseButton
 	
 	if event.button_index == MOUSE_BUTTON_RIGHT and pressed:
-		var selected_jack :Jack = null
-		for n in $Jacks.get_children():
-			n = n as Jack
-			if n.in_use:
-				selected_jack = n
-				break
-		if selected_jack == null:
-			return
-		
 		# find cable connected to the selected jack and remove it
-		var cable :Cable = find_cable(selected_jack)
+		var cable: Cable = find_cable(selected_jack)
 		if cable != null:
-			print_debug("remove cable")
 			remove_child(cable)
-			
 	
 	# only right-click
 	if event.button_index != MOUSE_BUTTON_LEFT:
@@ -59,48 +62,40 @@ func _input(event):
 	if pressed == event.is_pressed():
 		return
 		
-	var selected_jack :Jack = null
-	for n in $Jacks.get_children():
-		n = n as Jack
-		if n.in_use:
-			selected_jack = n
-			break
-	
 	# remove previous cables (if any)
-	var previous_cable :Cable = find_cable(selected_jack)
+	var previous_cable: Cable = find_cable(selected_jack)
 	if previous_cable != null and previous_cable.is_fully_connected():
-		print_debug("remove cable")
 		remove_child(previous_cable)
 	
-	# skip user clicked outside of the jacks
-	if selected_jack == null:
-		return
-		
 	if event.is_pressed():
 		source = selected_jack
 		source.highlight()
-		current_line = cable_prototype.instantiate()
-		current_line.set_source(source)
-		print_debug("add cable")
-		add_child(current_line)
-	elif source != null:
-		if selected_jack != source:
-			current_line.set_destination(selected_jack)
-		current_line = null
-		source.unhighlight()
-		source = null		
+		
+		# create new cable, one end connected to the source
+		# and the other connected to the mouse pointer
+		current_cable = cable_prototype.instantiate()
+		current_cable.source = source
+		add_child(current_cable)
 	else:
-		# skip case where player clicked outside of the jack
-		# but released the button on a jack. Otherwise the
-		# source would be null while the destination would be set
-		return 
+		if selected_jack != source:
+			current_cable.destination = selected_jack
+		current_cable = null
+		source.unhighlight()
+		source = null
 		
 	pressed = event.is_pressed()
 
-func find_cable(jack :Jack) -> Cable:
+func find_cable(jack: Jack) -> Cable:
 	for node in get_children():
 		if node is Cable:
 			node = node as Cable
 			if node.is_connected_to(jack):
 				return node
+	return null
+
+func find_jack_in_use() -> Jack:
+	for node in $Jacks.get_children():
+		node = node as Jack
+		if node.in_use:
+			return node
 	return null

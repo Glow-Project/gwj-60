@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://1i7njcm3tgor"]
+[gd_scene load_steps=5 format=3 uid="uid://1i7njcm3tgor"]
 
-[ext_resource type="Texture2D" uid="uid://b57exrm1qf16j" path="res://visuals/wires_background.png" id="1_pbvaj"]
 [ext_resource type="Script" path="res://levels/wires/wires.gd" id="1_w52yc"]
+[ext_resource type="Texture2D" uid="uid://b57exrm1qf16j" path="res://assets/visual/wires_background.png" id="2_inuvj"]
 [ext_resource type="PackedScene" uid="uid://cpji2x3ql50cx" path="res://components/wires/jack.tscn" id="2_jfcml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1bo4"]
+size = Vector2(231, 101)
 
 [node name="Wires" type="Node2D"]
 script = ExtResource("1_w52yc")
@@ -10,7 +13,7 @@ script = ExtResource("1_w52yc")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(164.5, 80)
 scale = Vector2(0.548501, 0.415584)
-texture = ExtResource("1_pbvaj")
+texture = ExtResource("2_inuvj")
 
 [node name="Jacks" type="Node" parent="."]
 
@@ -45,3 +48,23 @@ position = Vector2(286, 40)
 [node name="jack8" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(287, 108)
+
+[node name="jack9" parent="Jacks" instance=ExtResource("2_jfcml")]
+modulate = Color(1, 0.45098, 0, 1)
+position = Vector2(286, 40)
+
+[node name="jack10" parent="Jacks" instance=ExtResource("2_jfcml")]
+modulate = Color(1, 0.45098, 0, 1)
+position = Vector2(287, 108)
+
+[node name="jack11" parent="Jacks" instance=ExtResource("2_jfcml")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(286, 40)
+
+[node name="jack12" parent="Jacks" instance=ExtResource("2_jfcml")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(287, 108)
+
+[node name="JackBoundary" type="CollisionShape2D" parent="."]
+position = Vector2(160.5, 71.5)
+shape = SubResource("RectangleShape2D_n1bo4")
