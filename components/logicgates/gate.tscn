@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://xefx38pnhca"]
+
+[ext_resource type="Texture2D" uid="uid://dihip4m77kind" path="res://assets/visual/gate.png" id="1_3wmwb"]
+[ext_resource type="Script" path="res://components/logicgates/gate.gd" id="2_1rj2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dore"]
+size = Vector2(64, 64)
+
+[node name="Gate" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3wmwb")
+script = ExtResource("2_1rj2n")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1dore")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
