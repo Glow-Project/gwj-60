@@ -5,14 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://cpji2x3ql50cx" path="res://components/wires/jack.tscn" id="2_jfcml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1bo4"]
-size = Vector2(231, 101)
+size = Vector2(124, 117)
 
 [node name="Wires" type="Node2D"]
 script = ExtResource("1_w52yc")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(164.5, 80)
-scale = Vector2(0.548501, 0.415584)
+texture_filter = 1
+position = Vector2(79, 79.96)
+scale = Vector2(0.27866, 0.415792)
 texture = ExtResource("2_inuvj")
 
 [node name="Jacks" type="Node" parent="."]
@@ -35,36 +36,36 @@ position = Vector2(37, 108)
 
 [node name="jack5" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(286, 61)
+position = Vector2(126, 61)
 
 [node name="jack6" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(287, 85)
+position = Vector2(127, 85)
 
 [node name="jack7" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(286, 40)
+position = Vector2(127, 40)
 
 [node name="jack8" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(287, 108)
+position = Vector2(128, 108)
 
 [node name="jack9" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(1, 0.45098, 0, 1)
-position = Vector2(286, 40)
+position = Vector2(127, 40)
 
 [node name="jack10" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(1, 0.45098, 0, 1)
-position = Vector2(287, 108)
+position = Vector2(128, 108)
 
 [node name="jack11" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(286, 40)
+position = Vector2(126, 40)
 
 [node name="jack12" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(287, 108)
+position = Vector2(127, 108)
 
 [node name="JackBoundary" type="CollisionShape2D" parent="."]
-position = Vector2(160.5, 71.5)
+position = Vector2(79, 78.5)
 shape = SubResource("RectangleShape2D_n1bo4")

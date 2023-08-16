@@ -45,6 +45,7 @@ func on_mouse_move(event: InputEventMouseMotion) -> void:
 func on_mouse_click(event: InputEventMouseButton) -> void:
 	# if no jack got selected, we have nothing to do
 	var selected_jack: Jack = find_jack_in_use()
+	print(selected_jack)
 	if selected_jack == null:
 		return
 	
