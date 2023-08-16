@@ -1,6 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://sbcwvyngkfhg"]
+[gd_scene load_steps=13 format=3 uid="uid://sbcwvyngkfhg"]
 
+[ext_resource type="Script" path="res://components/robot_head/RobotHead.gd" id="1_a57sc"]
 [ext_resource type="Texture2D" uid="uid://cl7pxlcs7oyvl" path="res://assets/visual/robot_head.png" id="1_pv0nw"]
+[ext_resource type="Texture2D" uid="uid://c8smc6uxn83og" path="res://assets/visual/smoke.png" id="2_jpw78"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwoyj"]
+emission_shape = 1
+emission_sphere_radius = 10.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -10, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.2
+scale_max = 0.25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ot7ov"]
 atlas = ExtResource("1_pv0nw")
@@ -94,6 +106,14 @@ _data = {
 }
 
 [node name="RobotHead" type="Node2D"]
+script = ExtResource("1_a57sc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_pwoyj")
+texture = ExtResource("2_jpw78")
+lifetime = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

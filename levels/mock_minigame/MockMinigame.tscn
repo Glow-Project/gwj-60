@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vc5njlr718k"]
+
+[ext_resource type="Script" path="res://levels/mock_minigame/MockMinigame.gd" id="1_mjmv3"]
+
+[node name="MockMinigame" type="Node2D"]
+script = ExtResource("1_mjmv3")

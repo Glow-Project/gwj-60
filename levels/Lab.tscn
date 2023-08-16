@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=9 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
+[ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
 [ext_resource type="Texture2D" uid="uid://wjsaeatnm74p" path="res://assets/visual/light.png" id="2_x2ckh"]
 [ext_resource type="PackedScene" uid="uid://d11v00xqu2xym" path="res://components/radio/Radio.tscn" id="4_yen6p"]
 [ext_resource type="AudioStream" uid="uid://cwte4lqwvpwq8" path="res://assets/audio/MellowOnDaRoof.mp3" id="5_oled1"]
 [ext_resource type="PackedScene" uid="uid://b4usrek4ic1fn" path="res://components/screen/Screen.tscn" id="6_8ncxa"]
 [ext_resource type="PackedScene" uid="uid://sbcwvyngkfhg" path="res://components/robot_head/RobotHead.tscn" id="7_1vc8v"]
+[ext_resource type="PackedScene" uid="uid://vc5njlr718k" path="res://levels/mock_minigame/MockMinigame.tscn" id="8_nlr1q"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_6l1vn")
@@ -13,6 +15,7 @@ script = ExtResource("1_6l1vn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.352941, 0.352941, 0.352941, 1)
 texture_filter = 1
+texture = ExtResource("1_hbbn5")
 centered = false
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -30,8 +33,19 @@ autoplay = true
 [node name="RadioScreen" parent="." instance=ExtResource("6_8ncxa")]
 position = Vector2(39, 52)
 
-[node name="Screen2" parent="." instance=ExtResource("6_8ncxa")]
+[node name="TestSuiteScreen" parent="." instance=ExtResource("6_8ncxa")]
 position = Vector2(103, 52)
 
 [node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
 position = Vector2(70, 69)
+
+[node name="Minigames" type="Node2D" parent="."]
+
+[node name="Wires" parent="Minigames" instance=ExtResource("8_nlr1q")]
+
+[node name="LogicGates" parent="Minigames" instance=ExtResource("8_nlr1q")]
+
+[node name="Brain" parent="Minigames" instance=ExtResource("8_nlr1q")]
+
+[node name="Mock" parent="Minigames" instance=ExtResource("8_nlr1q")]
+result = "Something went wrong"
