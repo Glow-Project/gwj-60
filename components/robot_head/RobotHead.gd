@@ -15,8 +15,4 @@ func success_boot() -> void:
 func fail_boot() -> void:
 	anim.play("crazy")
 	await get_tree().create_timer(5).timeout
-	anim.stop()
-	sprite.play("off")
-	particles.emitting = true
-	await get_tree().create_timer(5).timeout
-	particles.emitting = false
+	anim.play("short_circuit")

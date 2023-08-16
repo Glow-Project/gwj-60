@@ -33,6 +33,7 @@ func run_tests() -> void:
 			emit_signal("boot_fail")
 			anim.play("test_failed")
 			await anim.animation_finished
+			anim.play("RESET")
 			output.hide()
 			output.text = default_output_text
 			failed = true
