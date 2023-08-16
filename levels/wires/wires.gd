@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var is_in_viewport: bool = true
+
 var source: Jack = null
 var destination: Jack = null
 
@@ -8,6 +10,8 @@ var current_cable: Cable
 var pressed: bool = false
 
 var cable_prototype: PackedScene = preload("res://components/wires/Cable.tscn")
+
+@onready var viewport: SubViewportContainer = get_viewport().get_parent() if is_in_viewport else null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,7 +44,10 @@ func _input(event):
 
 func on_mouse_move(event: InputEventMouseMotion) -> void:
 	if current_cable != null:
-		current_cable.update_destination(event.position) 
+		if is_in_viewport:
+			current_cable.update_destination(event.position - get_viewport().get_parent().position)
+		else:
+			current_cable.update_destination(event.position)
 
 func on_mouse_click(event: InputEventMouseButton) -> void:
 	# if no jack got selected, we have nothing to do
