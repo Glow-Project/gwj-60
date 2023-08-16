@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cea60p5gkpqr6"]
+[gd_scene load_steps=5 format=3 uid="uid://cea60p5gkpqr6"]
 
 [ext_resource type="Script" path="res://levels/logicgates/logicgates.gd" id="1_pyl2h"]
 [ext_resource type="PackedScene" uid="uid://xefx38pnhca" path="res://components/logicgates/gate.tscn" id="1_sl0af"]
+[ext_resource type="Texture2D" uid="uid://gw63nifrelpn" path="res://assets/visual/cpu.png" id="2_ej5pe"]
 [ext_resource type="PackedScene" uid="uid://mponf2h3fpq4" path="res://components/logicgates/GateConnection.tscn" id="2_hem1n"]
 
 [node name="LogicGates" type="Node2D"]
 script = ExtResource("1_pyl2h")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160, 80)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ej5pe")
 
 [node name="GateConnectionIn1Or2" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
 source = NodePath("../In1")
