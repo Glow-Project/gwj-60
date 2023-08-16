@@ -7,9 +7,9 @@
 [node name="LogicGates" type="Node2D"]
 script = ExtResource("1_pyl2h")
 
-[node name="GateConnectionIn1Not" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+[node name="GateConnectionIn1Or2" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
 source = NodePath("../In1")
-destination = NodePath("../Not")
+destination = NodePath("../Or2")
 
 [node name="GateConnectionNotAnd" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
 source = NodePath("../Not")
@@ -18,6 +18,14 @@ destination = NodePath("../And")
 [node name="GateConnectionIn2Or" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
 source = NodePath("../In2")
 destination = NodePath("../Or")
+
+[node name="GateConnectionOr2Not" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../Or2")
+destination = NodePath("../Not")
+
+[node name="GateConnectionIn2Or2" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../In2")
+destination = NodePath("../Or2")
 
 [node name="GateConnectionIn3Or" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
 source = NodePath("../In3")
@@ -39,21 +47,29 @@ destination = NodePath("../Not2")
 source = NodePath("../And2")
 destination = NodePath("../Out")
 
-[node name="GateConnectionNot2And2" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
-source = NodePath("../Not2")
+[node name="GateConnectionAnd3And2" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../And3")
 destination = NodePath("../And2")
 
+[node name="GateConnectionNot2And3" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../Not2")
+destination = NodePath("../And3")
+
+[node name="GateConnectionIn4And3" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
+source = NodePath("../In4")
+destination = NodePath("../And3")
+
 [node name="In1" parent="." instance=ExtResource("1_sl0af")]
-position = Vector2(24, 32)
+position = Vector2(24, 24)
 type = 6
 
 [node name="Not" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
-position = Vector2(128, 32)
+position = Vector2(128, 24)
 type = 4
-input1 = NodePath("../GateConnectionIn1Not")
+input1 = NodePath("../GateConnectionOr2Not")
 
 [node name="In2" parent="." instance=ExtResource("1_sl0af")]
-position = Vector2(24, 80)
+position = Vector2(24, 64)
 type = 6
 
 [node name="And" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
@@ -67,11 +83,11 @@ type = 5
 input1 = NodePath("../GateConnectionAnd2Out")
 
 [node name="In3" parent="." instance=ExtResource("1_sl0af")]
-position = Vector2(24, 128)
+position = Vector2(24, 104)
 type = 6
 
 [node name="Or" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
-position = Vector2(128, 80)
+position = Vector2(128, 64)
 type = 3
 input1 = NodePath("../GateConnectionIn2Or")
 input2 = NodePath("../GateConnectionIn3Or")
@@ -79,9 +95,23 @@ input2 = NodePath("../GateConnectionIn3Or")
 [node name="And2" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
 position = Vector2(240, 80)
 input1 = NodePath("../GateConnectionAnd1And2")
-input2 = NodePath("../GateConnectionNot2And2")
+input2 = NodePath("../GateConnectionAnd3And2")
 
 [node name="Not2" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
-position = Vector2(128, 128)
+position = Vector2(128, 104)
 type = 4
 input1 = NodePath("../GateConnectionIn3Not2")
+
+[node name="Or2" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
+position = Vector2(80, 24)
+input1 = NodePath("../GateConnectionIn1Or2")
+input2 = NodePath("../GateConnectionIn2Or2")
+
+[node name="In4" parent="." instance=ExtResource("1_sl0af")]
+position = Vector2(24, 144)
+type = 6
+
+[node name="And3" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
+position = Vector2(184, 120)
+input1 = NodePath("../GateConnectionNot2And3")
+input2 = NodePath("../GateConnectionIn4And3")

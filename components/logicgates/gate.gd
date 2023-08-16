@@ -18,7 +18,7 @@ var type_textures = [
 @export var input1: GateConnection : set = set_input1
 @export var input2: GateConnection : set = set_input2
 
-var input_value: bool = true
+var input_value: bool = false
 
 var focus: bool = false
 
