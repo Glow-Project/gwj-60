@@ -1,6 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://sbcwvyngkfhg"]
+[gd_scene load_steps=18 format=3 uid="uid://sbcwvyngkfhg"]
 
+[ext_resource type="Script" path="res://components/robot_head/RobotHead.gd" id="1_a57sc"]
 [ext_resource type="Texture2D" uid="uid://cl7pxlcs7oyvl" path="res://assets/visual/robot_head.png" id="1_pv0nw"]
+[ext_resource type="Texture2D" uid="uid://c8smc6uxn83og" path="res://assets/visual/smoke.png" id="2_jpw78"]
+[ext_resource type="AudioStream" uid="uid://dmb4j0psw07gr" path="res://assets/audio/electro_shock.mp3" id="4_2tacm"]
+[ext_resource type="AudioStream" uid="uid://be05j77mgtohx" path="res://assets/audio/beepboop.mp3" id="4_6mkp2"]
+[ext_resource type="AudioStream" uid="uid://bfiti58hsw50c" path="res://assets/audio/smoke.mp3" id="6_rttji"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwoyj"]
+emission_shape = 1
+emission_sphere_radius = 10.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -10, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.2
+scale_max = 0.25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ot7ov"]
 atlas = ExtResource("1_pv0nw")
@@ -53,6 +68,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_wiqey"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_d8i1f"]
 resource_name = "booting"
 loop_mode = 1
@@ -71,7 +102,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_txts5"]
 resource_name = "crazy"
-length = 0.4
+length = 5.0
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -81,19 +112,91 @@ tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [&"off", &"red", &"green", &"yellow"]
+"values": [&"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green", &"yellow", &"off", &"red", &"green"]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.205263,
+"start_offset": 0.0,
+"stream": ExtResource("4_6mkp2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_3fa2o"]
+resource_name = "short_circuit"
+length = 5.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_2tacm")
+}, {
+"end_offset": 4.64916,
+"start_offset": 0.0,
+"stream": ExtResource("6_rttji")
+}],
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"off"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_otg67"]
 _data = {
+"RESET": SubResource("Animation_wiqey"),
 "booting": SubResource("Animation_d8i1f"),
-"crazy": SubResource("Animation_txts5")
+"crazy": SubResource("Animation_txts5"),
+"short_circuit": SubResource("Animation_3fa2o")
 }
 
 [node name="RobotHead" type="Node2D"]
+script = ExtResource("1_a57sc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_pwoyj")
+texture = ExtResource("2_jpw78")
+lifetime = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -104,3 +207,5 @@ animation = &"off"
 libraries = {
 "": SubResource("AnimationLibrary_otg67")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

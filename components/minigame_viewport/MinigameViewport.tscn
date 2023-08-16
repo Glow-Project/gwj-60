@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://baiy8vimqg8hg"]
+
+[ext_resource type="PackedScene" uid="uid://1i7njcm3tgor" path="res://levels/wires/wires.tscn" id="1_52jfy"]
+[ext_resource type="Script" path="res://components/minigame_viewport/MinigameViewport.gd" id="1_u2vvc"]
+
+[node name="MinigameViewport" type="SubViewportContainer"]
+texture_filter = 1
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 160.0
+offset_bottom = 159.0
+script = ExtResource("1_u2vvc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+physics_object_picking = true
+gui_disable_input = true
+size = Vector2i(158, 160)
+render_target_update_mode = 4
+
+[node name="Wires" parent="SubViewport" instance=ExtResource("1_52jfy")]

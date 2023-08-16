@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkqm1fe1ffnxb"]
+
+[ext_resource type="Texture2D" uid="uid://cnc4qm0pnh2e2" path="res://assets/visual/cursor.png" id="1_6n08c"]
+[ext_resource type="Script" path="res://components/mouse/Mouse.gd" id="2_jqras"]
+
+[node name="Mouse" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_6n08c")
+script = ExtResource("2_jqras")

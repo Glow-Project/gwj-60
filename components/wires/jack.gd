@@ -4,13 +4,7 @@ class_name Jack
 
 var in_use :bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var area: Area2D = $Shape
 
 func highlight()-> void:
 	$AnimationPlayer.play("highlight")
