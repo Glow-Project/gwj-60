@@ -2,7 +2,7 @@ extends Sprite2D
 
 class_name Gate
 
-enum GateTypeEnum { ZERO, ONE, AND, OR, NOT, OUT, IN}
+enum GateTypeEnum { ZERO=0, ONE, AND, OR, NOT, OUT, IN}
 @export var type: GateTypeEnum = GateTypeEnum.AND
 
 var type_textures = [
@@ -21,6 +21,7 @@ var type_textures = [
 var input_value: bool = false
 
 var focus: bool = false
+var out_audio_played: bool = false
 
 var pressed: bool = false
 
@@ -48,6 +49,7 @@ func _input(event):
 	if event.is_pressed() == pressed:
 		return
 	elif event.is_pressed():
+		$SwitchAudio.play()
 		input_value = !input_value
 		update_texture(input_value)
 	
@@ -97,6 +99,11 @@ func output() -> bool:
 		GateTypeEnum.NOT: return !input1.output()
 		GateTypeEnum.OUT:
 			var out = input1.output()
+			if !out:
+				out_audio_played = false
+			if !out_audio_played and out:
+				out_audio_played = true
+				$OutAudio.play()
 			update_texture(out)
 			return out
 		GateTypeEnum.IN:

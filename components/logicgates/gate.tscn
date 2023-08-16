@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xefx38pnhca"]
+[gd_scene load_steps=6 format=3 uid="uid://xefx38pnhca"]
 
 [ext_resource type="Texture2D" uid="uid://dihip4m77kind" path="res://assets/visual/gate.png" id="1_3wmwb"]
 [ext_resource type="Script" path="res://components/logicgates/gate.gd" id="2_1rj2n"]
+[ext_resource type="AudioStream" uid="uid://dvgn1keaq2eew" path="res://assets/audio/ligth_switch.mp3" id="3_28nnu"]
+[ext_resource type="AudioStream" uid="uid://dsgh5ekulr1ey" path="res://assets/audio/light_bulb_on.mp3" id="4_dtbxk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dore"]
 size = Vector2(64, 64)
@@ -16,6 +18,12 @@ script = ExtResource("2_1rj2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1dore")
+
+[node name="SwitchAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_28nnu")
+
+[node name="OutAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dtbxk")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
