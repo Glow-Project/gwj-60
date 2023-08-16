@@ -84,8 +84,16 @@ func output() -> bool:
 	match type:
 		GateTypeEnum.ZERO: return false
 		GateTypeEnum.ONE: return true
-		GateTypeEnum.AND: return input1.output() and input2.output()
-		GateTypeEnum.OR: return input1.output() or input2.output()
+		GateTypeEnum.AND: 
+			# grab both inputs before doing the check
+			# in order to update both paths
+			var a = input1.output()
+			var b = input2.output()
+			return a and b
+		GateTypeEnum.OR: 
+			var a = input1.output()
+			var b = input2.output()
+			return a or b
 		GateTypeEnum.NOT: return !input1.output()
 		GateTypeEnum.OUT:
 			var out = input1.output()
