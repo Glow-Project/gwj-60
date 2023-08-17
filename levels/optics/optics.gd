@@ -1,6 +1,6 @@
 extends Node2D
 
-
+class_name Wall
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +23,9 @@ func _process(delta):
 			return
 		
 		$LaserBeam.add_point($RayCast.get_collision_point())
+		
+		if $RayCast.get_collider().name == "WallArea":
+			return
 	
 		if $RayCast.get_collider() == $LightSink/Area2D:
 			$LightSink.highlight()
