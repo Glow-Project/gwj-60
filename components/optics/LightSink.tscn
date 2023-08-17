@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://ds3bbdr5tybtw"]
+
+[ext_resource type="Texture2D" uid="uid://fjhuhoymjfnh" path="res://components/optics/LightSink_resource.tres" id="1_kdnoh"]
+[ext_resource type="Script" path="res://components/optics/LightSink.gd" id="1_wr5qn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oashf"]
+size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_l8fp1"]
+resource_name = "LightArrival"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vssde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mjgy0"]
+resource_name = "LightLeave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3.36358),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlnxh"]
+_data = {
+"LightArrival": SubResource("Animation_l8fp1"),
+"LightLeave": SubResource("Animation_mjgy0"),
+"RESET": SubResource("Animation_vssde")
+}
+
+[sub_resource type="Gradient" id="Gradient_tq0wk"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6f74e"]
+gradient = SubResource("Gradient_tq0wk")
+
+[node name="LightSink" type="Node2D"]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.234375, 0.234375)
+script = ExtResource("1_wr5qn")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kdnoh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_oashf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jlnxh")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.0252e-05, 9.05991e-06)
+scale = Vector2(0.366667, 85.3333)
+color = Color(1, 0, 0, 1)
+energy = 0.0
+texture = SubResource("GradientTexture1D_6f74e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

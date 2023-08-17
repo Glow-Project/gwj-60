@@ -1,68 +1,53 @@
-[gd_scene load_steps=9 format=3 uid="uid://337oa506glvi"]
+[gd_scene load_steps=5 format=3 uid="uid://337oa506glvi"]
 
 [ext_resource type="Script" path="res://levels/optics/optics.gd" id="1_66lwc"]
-
-[sub_resource type="Gradient" id="Gradient_gmdnn"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pg0lk"]
-gradient = SubResource("Gradient_gmdnn")
-width = 100
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_g8cu2"]
-a = Vector2(37, -3)
-b = Vector2(2, 7)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_jrg3t"]
-a = Vector2(0, -16)
-b = Vector2(28, -16)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_pxtx7"]
-b = Vector2(33, -8)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_snf2o"]
-b = Vector2(22, 21)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qsxc"]
+[ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="2_fcxso"]
+[ext_resource type="PackedScene" uid="uid://cgopd24l6timg" path="res://components/optics/Mirror.tscn" id="2_isxrc"]
+[ext_resource type="PackedScene" uid="uid://ds3bbdr5tybtw" path="res://components/optics/LightSink.tscn" id="3_y0mhm"]
 
 [node name="Optics" type="Node2D"]
 script = ExtResource("1_66lwc")
-
-[node name="Emitter" type="Sprite2D" parent="."]
-position = Vector2(18, 75)
-scale = Vector2(0.23835, 20.4595)
-texture = SubResource("GradientTexture1D_pg0lk")
 
 [node name="RayCast" type="RayCast2D" parent="."]
 position = Vector2(20, 75)
 target_position = Vector2(52, 0)
 collide_with_areas = true
 
-[node name="Ray" type="Line2D" parent="."]
+[node name="LaserBeam" type="Line2D" parent="."]
 points = PackedVector2Array(19, 74, 105, 74, 172, 40, 262, 118)
-width = 3.0
-default_color = Color(0.662745, 0, 0, 1)
+width = 1.0
+default_color = Color(0.905882, 0, 0, 1)
+joint_mode = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Emitter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(33, 74)
+scale = Vector2(1.21293, 1.375)
+texture = ExtResource("2_fcxso")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(91, 73)
-shape = SubResource("SegmentShape2D_g8cu2")
+[node name="Mirror" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(170, 34.5)
+scale = Vector2(0.109375, -3)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(156, 51)
-shape = SubResource("SegmentShape2D_jrg3t")
+[node name="Mirror2" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(225, 62)
+rotation = -0.237941
+scale = Vector2(0.109375, -3)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(209, 66)
-shape = SubResource("SegmentShape2D_pxtx7")
+[node name="Mirror3" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(235, 35)
+rotation = 0.823265
+scale = Vector2(0.109375, -3)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(224, 16)
-shape = SubResource("SegmentShape2D_snf2o")
+[node name="Mirror4" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(156, 81)
+rotation = 1.3425
+scale = Vector2(0.109375, -3)
 
-[node name="EndBody" type="StaticBody2D" parent="."]
+[node name="Mirror5" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(106, 75)
+rotation = 2.88518
+scale = Vector2(0.109375, -3)
 
-[node name="End" type="CollisionShape2D" parent="EndBody"]
-position = Vector2(166, 86)
-shape = SubResource("RectangleShape2D_1qsxc")
+[node name="LightSink" parent="." instance=ExtResource("3_y0mhm")]
+position = Vector2(240, 77)
