@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmn6hs2k6fno7"]
+
+[ext_resource type="Script" path="res://components/minigame_selector/MinigameSelector.gd" id="1_oqhro"]
+[ext_resource type="Texture2D" uid="uid://bx4ddvffvn835" path="res://assets/visual/microchip.png" id="3_08eri"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nwlp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auirm"]
+
+[node name="MinigameSelector" type="Area2D"]
+script = ExtResource("1_oqhro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6nwlp")
+texture = ExtResource("3_08eri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_auirm")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

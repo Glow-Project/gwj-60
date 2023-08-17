@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=14 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
 [ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://vc5njlr718k" path="res://levels/mock_minigame/MockMinigame.tscn" id="8_nlr1q"]
 [ext_resource type="PackedScene" uid="uid://baiy8vimqg8hg" path="res://components/minigame_viewport/MinigameViewport.tscn" id="9_0bexr"]
 [ext_resource type="PackedScene" uid="uid://bkqm1fe1ffnxb" path="res://components/mouse/Mouse.tscn" id="10_tpgvr"]
+[ext_resource type="PackedScene" uid="uid://dmn6hs2k6fno7" path="res://components/minigame_selector/MinigameSelector.tscn" id="11_rjiue"]
+[ext_resource type="Texture2D" uid="uid://bx4ddvffvn835" path="res://assets/visual/microchip.png" id="12_jnc5f"]
+[ext_resource type="Texture2D" uid="uid://di3cweafgpo4c" path="res://assets/visual/CPU.png" id="12_ulmjj"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_6l1vn")
@@ -58,4 +61,16 @@ offset_top = 0.0
 offset_right = 321.0
 offset_bottom = 160.0
 
+[node name="WiresMinigameSelector" parent="." instance=ExtResource("11_rjiue")]
+position = Vector2(108, 90)
+texture = ExtResource("12_jnc5f")
+
+[node name="LogicMinigame" parent="." instance=ExtResource("11_rjiue")]
+position = Vector2(32, 100)
+texture = ExtResource("12_ulmjj")
+
 [node name="Mouse" parent="." instance=ExtResource("10_tpgvr")]
+top_level = true
+
+[connection signal="select" from="WiresMinigameSelector" to="." method="_on_wires_minigame_selector_select"]
+[connection signal="select" from="LogicMinigame" to="." method="_on_logic_minigame_select"]
