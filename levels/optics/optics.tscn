@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://337oa506glvi"]
+
+[ext_resource type="Script" path="res://levels/optics/optics.gd" id="1_66lwc"]
+
+[sub_resource type="Gradient" id="Gradient_gmdnn"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pg0lk"]
+gradient = SubResource("Gradient_gmdnn")
+width = 100
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q6f8i"]
+a = Vector2(-3, -6)
+b = Vector2(37, -19)
+
+[node name="Optics" type="Node2D"]
+script = ExtResource("1_66lwc")
+
+[node name="Emitter" type="Sprite2D" parent="."]
+position = Vector2(18, 75)
+scale = Vector2(0.23835, 20.4595)
+texture = SubResource("GradientTexture1D_pg0lk")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(20, 75)
+target_position = Vector2(52, 0)
+collide_with_areas = true
+
+[node name="Ray" type="Line2D" parent="."]
+points = PackedVector2Array(19, 74, 105, 74, 172, 40, 262, 118)
+width = 3.0
+default_color = Color(0.662745, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(93, 88)
+shape = SubResource("SegmentShape2D_q6f8i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(156, 49)
+shape = SubResource("SegmentShape2D_q6f8i")
