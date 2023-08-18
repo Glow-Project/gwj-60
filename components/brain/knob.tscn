@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqxqiyli1htuw"]
+
+[ext_resource type="Script" path="res://components/brain/knob.gd" id="1_6770b"]
+[ext_resource type="Texture2D" uid="uid://tgdjniol55je" path="res://assets/visual/knob.png" id="2_4mfdx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hx0rn"]
+radius = 8.0
+
+[node name="Knob" type="Node2D"]
+script = ExtResource("1_6770b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_4mfdx")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_hx0rn")
+
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
