@@ -20,7 +20,7 @@ func boot_radio_screen() -> void:
 
 func boot_test_suite_screen() -> void:
 	var test_suite = test_suite_scene.instantiate()
-	test_suite.minigames = $Minigames.get_children()
+	test_suite.minigames = minigames.values()
 	test_suite.connect("boot_start", func(): robot_head.start_booting())
 	test_suite.connect("boot_success", func(): robot_head.success_boot())
 	test_suite.connect("boot_fail", func(): robot_head.fail_boot())

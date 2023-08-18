@@ -11,6 +11,8 @@ func _set_minigame(value) -> void:
 	subviewport.add_child(minigame)
 
 func _ready() -> void:
-	$SubViewport.add_child(minigame)
 	set_process_input(true)
 	set_process_unhandled_input(true)
+
+func _input(event: InputEvent) -> void:
+	$SubViewport.get_child(0)._input(event)

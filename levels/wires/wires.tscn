@@ -69,3 +69,5 @@ position = Vector2(126, 40)
 [node name="jack12" parent="Jacks" instance=ExtResource("2_jfcml")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(127, 108)
+
+[node name="Cables" type="Node2D" parent="."]
