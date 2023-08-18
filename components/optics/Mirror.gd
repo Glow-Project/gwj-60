@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var is_in_viewport: bool = true : set = _set_is_in_viewport
+@export var is_in_viewport := true : set = _set_is_in_viewport
 
 var focus: bool = false
-var pressed: bool = false : set = _set_pressed
+var pressed := false : set = _set_pressed
 var start: Vector2
 var highlight_shader = preload("res://components/minigame_selector/Highlight.gdshader")
 var viewport: SubViewportContainer = null

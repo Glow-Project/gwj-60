@@ -1,13 +1,13 @@
 extends Node2D
 
-@export var is_in_viewport: bool = true
+@export var is_in_viewport := true
 
 var source: Jack = null
 var destination: Jack = null
 
 var current_cable: Cable
 
-var pressed: bool = false
+var pressed := false
 
 var cable_prototype: PackedScene = preload("res://components/wires/Cable.tscn")
 

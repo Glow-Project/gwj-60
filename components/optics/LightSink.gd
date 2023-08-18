@@ -1,6 +1,6 @@
 extends Node2D
 
-var highlighted: bool = false
+var highlighted := false
 
 func highlight():
 	# avoid bursts

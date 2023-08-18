@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var is_in_viewport = true
+@export var is_in_viewport := true
 
 func _ready() -> void:
 	for mirror in $Mirrors.get_children():
