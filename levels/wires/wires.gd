@@ -45,7 +45,7 @@ func _input(event):
 func on_mouse_move(event: InputEventMouseMotion) -> void:
 	if current_cable != null:
 		if is_in_viewport:
-			current_cable.update_destination(event.position - get_viewport().get_parent().position)
+			current_cable.update_destination(event.position - viewport.position)
 		else:
 			current_cable.update_destination(event.position)
 

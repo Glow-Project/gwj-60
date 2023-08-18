@@ -1,11 +1,19 @@
 extends Node2D
 
+@export var is_in_viewport: bool = true : set = _set_is_in_viewport
+
 var focus: bool = false
 var pressed: bool = false : set = _set_pressed
 var start: Vector2
 var highlight_shader = preload("res://components/minigame_selector/Highlight.gdshader")
+var viewport: SubViewportContainer = null
 
 @onready var sprite: Sprite2D = $Sprite2D
+
+func _set_is_in_viewport(value: bool) -> void:
+	is_in_viewport = value
+	if is_in_viewport:
+		viewport = get_viewport().get_parent()
 
 func _set_pressed(value: bool) -> void:
 	pressed = value
@@ -33,7 +41,10 @@ func _on_mouse_button(event: InputEventMouseButton) -> void:
 	pressed = event.is_pressed()
 	
 func _on_mouse_motion(event: InputEventMouseMotion) -> void:
-	look_at(event.position)
+	if is_in_viewport:
+		look_at(event.position - viewport.global_position)
+	else:
+		look_at(event.position)
 
 func _on_area_2d_mouse_entered():
 	focus = true

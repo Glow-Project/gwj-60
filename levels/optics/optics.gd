@@ -1,6 +1,10 @@
 extends Node2D
 
-class_name Wall
+@export var is_in_viewport = true
+
+func _ready() -> void:
+	for mirror in $Mirrors.get_children():
+		mirror.is_in_viewport = is_in_viewport
 
 func _input(event: InputEvent) -> void:
 	for mirror in $Mirrors.get_children():
