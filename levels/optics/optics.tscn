@@ -28,42 +28,34 @@ texture = ExtResource("2_fcxso")
 
 [node name="Mirror" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(170, 34.5)
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror2" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(225, 62)
 rotation = -0.237941
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror3" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(235, 35)
 rotation = 0.823265
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror4" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(156, 81)
 rotation = 1.3425
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror5" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(106, 75)
 rotation = 2.88518
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror6" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(70, 28)
 rotation = 3.82839
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror7" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(15, 145)
 rotation = 3.82839
-scale = Vector2(0.109375, -3)
 
 [node name="Mirror8" parent="." instance=ExtResource("2_isxrc")]
 position = Vector2(109, 141)
 rotation = 3.82839
-scale = Vector2(0.109375, -3)
 
 [node name="LightSink" parent="." instance=ExtResource("3_y0mhm")]
 position = Vector2(259, 87)

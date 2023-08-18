@@ -1,22 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgopd24l6timg"]
 
+[ext_resource type="Texture2D" uid="uid://bkcfyi3l1jxs1" path="res://assets/visual/mirror.png" id="1_4opwn"]
 [ext_resource type="Script" path="res://components/optics/Mirror.gd" id="1_dyanq"]
 
-[sub_resource type="Gradient" id="Gradient_6jkay"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.0856643, 0.456294, 0.554196, 0.652098, 0.90035, 1)
-colors = PackedColorArray(0.408329, 0.408329, 0.408329, 1, 0.435192, 0.435192, 0.435192, 1, 0.753984, 0.753984, 0.753982, 1, 1, 1, 1, 1, 0.691357, 0.691357, 0.691358, 1, 0.485703, 0.485704, 0.485703, 1, 0.381703, 0.381703, 0.381703, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gr85s"]
-gradient = SubResource("Gradient_6jkay")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsihn"]
-size = Vector2(256, 1)
+size = Vector2(30, 6)
 
-[node name="Mirror" type="Sprite2D"]
-position = Vector2(0, 2.98023e-08)
-scale = Vector2(0.0664062, -2)
-texture = SubResource("GradientTexture1D_gr85s")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5v5mc"]
+
+[node name="Mirror" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_dyanq")
 metadata/_edit_group_ = true
 
@@ -24,6 +17,11 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_vsihn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5v5mc")
+scale = Vector2(0.117, 0.195)
+texture = ExtResource("1_4opwn")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
