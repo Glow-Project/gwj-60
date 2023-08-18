@@ -65,7 +65,7 @@ scale = Vector2(0.4, 0.4)
 type = 6
 
 [node name="Not" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
-position = Vector2(140, 20)
+position = Vector2(75.8, 19.8)
 scale = Vector2(0.4, 0.4)
 type = 4
 input1 = NodePath("../GateConnectionOr2Not")
@@ -76,13 +76,13 @@ scale = Vector2(0.4, 0.4)
 type = 6
 
 [node name="And" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
-position = Vector2(196, 43)
+position = Vector2(109.8, 40.8)
 scale = Vector2(0.4, 0.4)
 input1 = NodePath("../GateConnectionNotAnd")
 input2 = NodePath("../GateConnectionOrAnd")
 
 [node name="Out" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
-position = Vector2(288, 80)
+position = Vector2(137, 72)
 scale = Vector2(0.4, 0.4)
 type = 5
 input1 = NodePath("../GateConnectionAnd2Out")
@@ -93,26 +93,26 @@ scale = Vector2(0.4, 0.4)
 type = 6
 
 [node name="Or" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
-position = Vector2(141, 56)
+position = Vector2(76, 65)
 scale = Vector2(0.4, 0.4)
 type = 3
 input1 = NodePath("../GateConnectionIn2Or")
 input2 = NodePath("../GateConnectionIn3Or")
 
 [node name="And2" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
-position = Vector2(244, 80)
+position = Vector2(108, 94)
 scale = Vector2(0.4, 0.4)
 input1 = NodePath("../GateConnectionAnd1And2")
 input2 = NodePath("../GateConnectionAnd3And2")
 
 [node name="Not2" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
-position = Vector2(141, 93)
+position = Vector2(67, 99)
 scale = Vector2(0.4, 0.4)
 type = 4
 input1 = NodePath("../GateConnectionIn3Not2")
 
 [node name="Or2" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
-position = Vector2(76, 20)
+position = Vector2(47, 39)
 scale = Vector2(0.4, 0.4)
 input1 = NodePath("../GateConnectionIn1Or2")
 input2 = NodePath("../GateConnectionIn2Or2")
@@ -123,7 +123,7 @@ scale = Vector2(0.4, 0.4)
 type = 6
 
 [node name="And3" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
-position = Vector2(196, 120)
+position = Vector2(90, 132)
 scale = Vector2(0.4, 0.4)
 input1 = NodePath("../GateConnectionNot2And3")
 input2 = NodePath("../GateConnectionIn4And3")

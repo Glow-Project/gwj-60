@@ -52,7 +52,6 @@ func on_mouse_move(event: InputEventMouseMotion) -> void:
 func on_mouse_click(event: InputEventMouseButton) -> void:
 	# if no jack got selected, we have nothing to do
 	var selected_jack: Jack = find_jack_in_use()
-	print(selected_jack)
 	if selected_jack == null:
 		return
 	
@@ -60,7 +59,7 @@ func on_mouse_click(event: InputEventMouseButton) -> void:
 		# find cable connected to the selected jack and remove it
 		var cable: Cable = find_cable(selected_jack)
 		if cable != null:
-			remove_child(cable)
+			$Cables.remove_child(cable)
 	
 	# only right-click
 	if event.button_index != MOUSE_BUTTON_LEFT:
@@ -73,7 +72,7 @@ func on_mouse_click(event: InputEventMouseButton) -> void:
 	# remove previous cables (if any)
 	var previous_cable: Cable = find_cable(selected_jack)
 	if previous_cable != null and previous_cable.is_fully_connected():
-		remove_child(previous_cable)
+		$Cables.remove_child(previous_cable)
 	
 	if event.is_pressed():
 		source = selected_jack
@@ -83,7 +82,7 @@ func on_mouse_click(event: InputEventMouseButton) -> void:
 		# and the other connected to the mouse pointer
 		current_cable = cable_prototype.instantiate()
 		current_cable.source = source
-		add_child(current_cable)
+		$Cables.add_child(current_cable)
 	else:
 		if selected_jack != source:
 			current_cable.destination = selected_jack
@@ -94,11 +93,10 @@ func on_mouse_click(event: InputEventMouseButton) -> void:
 	pressed = event.is_pressed()
 
 func find_cable(jack: Jack) -> Cable:
-	for node in get_children():
-		if node is Cable:
-			node = node as Cable
-			if node.is_connected_to(jack):
-				return node
+	for node in $Cables.get_children():
+		node = node as Cable
+		if node.is_connected_to(jack):
+			return node
 	return null
 
 func find_jack_in_use() -> Jack:
@@ -107,3 +105,12 @@ func find_jack_in_use() -> Jack:
 		if node.in_use:
 			return node
 	return null
+
+func validate() -> String:
+	var children := $Cables.get_children()
+	if len(children) != $Jacks.get_child_count() / 2:
+		return "not all wires connected"
+	for cable in children:
+		if cable.source.modulate != cable.destination.modulate:
+			return "wrong connection"
+	return ""

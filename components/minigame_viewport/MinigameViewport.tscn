@@ -19,3 +19,4 @@ size = Vector2i(158, 160)
 render_target_update_mode = 4
 
 [node name="Wires" parent="SubViewport" instance=ExtResource("1_52jfy")]
+visible = false
