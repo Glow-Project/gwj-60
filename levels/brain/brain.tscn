@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl88k5rd3p0mq"]
+[gd_scene load_steps=7 format=3 uid="uid://cl88k5rd3p0mq"]
 
 [ext_resource type="PackedScene" uid="uid://cqxqiyli1htuw" path="res://components/brain/knob.tscn" id="1_aqiuo"]
 [ext_resource type="Script" path="res://levels/brain/brain.gd" id="1_l8xtl"]
@@ -12,9 +12,6 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_rcn3s")
 
 [sub_resource type="Theme" id="Theme_55c3b"]
-default_font = ExtResource("2_i476u")
-
-[sub_resource type="Theme" id="Theme_ht5pm"]
 default_font = ExtResource("2_i476u")
 
 [node name="Brain" type="Node2D"]
@@ -35,10 +32,14 @@ end_cap_mode = 2
 
 [node name="RobotLine" type="Line2D" parent="."]
 width = 2.0
-default_color = Color(0.709804, 0.121569, 0.121569, 0.67451)
+default_color = Color(0, 0, 0, 0)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="ShowLine" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(1, 0, 0, 0.756863)
 
 [node name="KnobA" parent="." instance=ExtResource("1_aqiuo")]
 position = Vector2(124, 127)
@@ -50,6 +51,10 @@ rotation = 0.865151
 
 [node name="KnobC" parent="." instance=ExtResource("1_aqiuo")]
 position = Vector2(162, 127)
+rotation = -2.43738
+
+[node name="KnobD" parent="." instance=ExtResource("1_aqiuo")]
+position = Vector2(180, 127)
 rotation = -2.43738
 
 [node name="LabelA" type="Label" parent="."]
@@ -82,14 +87,17 @@ theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "C"
 
-[node name="Button" type="Button" parent="."]
+[node name="LabelD" type="Label" parent="."]
 texture_filter = 1
 offset_left = 176.0
-offset_top = 119.0
-offset_right = 203.0
-offset_bottom = 149.0
-theme = SubResource("Theme_ht5pm")
-theme_override_colors/icon_normal_color = Color(1, 0, 0, 1)
-text = "GO"
+offset_top = 138.0
+offset_right = 186.0
+offset_bottom = 152.0
+theme = SubResource("Theme_55c3b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "D"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="on_value_change" from="KnobA" to="." method="_on_knob_a_on_value_change"]
+[connection signal="on_value_change" from="KnobB" to="." method="_on_knob_b_on_value_change"]
+[connection signal="on_value_change" from="KnobC" to="." method="_on_knob_c_on_value_change"]
+[connection signal="on_value_change" from="KnobD" to="." method="_on_knob_d_on_value_change"]

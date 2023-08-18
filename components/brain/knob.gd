@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Knob
 
-signal on_value_change(float)
+signal on_value_change(int)
 
 @export var is_in_viewport := false : set = _set_is_in_viewport
 
