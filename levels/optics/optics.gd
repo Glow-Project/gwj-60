@@ -2,9 +2,9 @@ extends Node2D
 
 class_name Wall
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+func _input(event: InputEvent) -> void:
+	for mirror in $Mirrors.get_children():
+		mirror._input(event)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,3 +36,6 @@ func _process(delta):
 			).bounce($RayCast.get_collision_normal())
 		$RayCast.global_position = $RayCast.get_collision_point() + reflect_target.normalized()*2
 		$RayCast.target_position = reflect_target.normalized()*300
+
+func validate() -> String:
+	return "" if $LightSink.highlighted else "target did not receive laser beam"
