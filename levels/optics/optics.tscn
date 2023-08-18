@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://337oa506glvi"]
+
+[ext_resource type="Script" path="res://levels/optics/optics.gd" id="1_66lwc"]
+[ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="2_fcxso"]
+[ext_resource type="PackedScene" uid="uid://cgopd24l6timg" path="res://components/optics/Mirror.tscn" id="2_isxrc"]
+[ext_resource type="PackedScene" uid="uid://ds3bbdr5tybtw" path="res://components/optics/LightSink.tscn" id="3_y0mhm"]
+[ext_resource type="PackedScene" uid="uid://dvbeqb2omfvyo" path="res://components/optics/Wall.tscn" id="5_7uqgw"]
+
+[node name="Optics" type="Node2D"]
+script = ExtResource("1_66lwc")
+
+[node name="RayCast" type="RayCast2D" parent="."]
+position = Vector2(20, 75)
+target_position = Vector2(52, 0)
+collide_with_areas = true
+
+[node name="LaserBeam" type="Line2D" parent="."]
+points = PackedVector2Array(19, 74, 105, 74, 172, 40, 262, 118)
+width = 1.0
+default_color = Color(0.905882, 0, 0, 1)
+joint_mode = 2
+
+[node name="Emitter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(30, 29)
+scale = Vector2(1.21293, 1.375)
+texture = ExtResource("2_fcxso")
+
+[node name="Mirror" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(170, 34.5)
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror2" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(225, 62)
+rotation = -0.237941
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror3" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(235, 35)
+rotation = 0.823265
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror4" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(156, 81)
+rotation = 1.3425
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror5" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(106, 75)
+rotation = 2.88518
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror6" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(70, 28)
+rotation = 3.82839
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror7" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(15, 145)
+rotation = 3.82839
+scale = Vector2(0.109375, -3)
+
+[node name="Mirror8" parent="." instance=ExtResource("2_isxrc")]
+position = Vector2(109, 141)
+rotation = 3.82839
+scale = Vector2(0.109375, -3)
+
+[node name="LightSink" parent="." instance=ExtResource("3_y0mhm")]
+position = Vector2(259, 87)
+
+[node name="Wall" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(138.687, 113.075)
+rotation = 1.57079
+scale = Vector2(1.9023, 5.65697)
+
+[node name="Wall2" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(256, 72.9364)
+rotation = 3.14159
+scale = Vector2(2.56214, 5.29549)
+
+[node name="Wall3" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(85.2584, 43.9562)
+rotation = 4.72528
+scale = Vector2(1.76032, 5.29549)
