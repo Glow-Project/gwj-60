@@ -6,7 +6,8 @@ var test_suite_scene := preload("res://components/displays/test_suite/TestSuite.
 @onready var robot_head: RobotHead = $RobotHead
 @onready var minigames: Dictionary = {
 	"wires": preload("res://levels/wires/wires.tscn").instantiate(),
-	"logic": preload("res://levels/logicgates/logicgates.tscn").instantiate()
+	"logic": preload("res://levels/logicgates/logicgates.tscn").instantiate(),
+	"optics": preload("res://levels/optics/optics.tscn").instantiate()
 }
 
 func _ready() -> void:
@@ -32,3 +33,6 @@ func _on_wires_minigame_selector_select() -> void:
 
 func _on_logic_minigame_select() -> void:
 	$MinigameViewport.minigame = minigames["logic"]
+
+func _on_optics_mingame_select() -> void:
+	$MinigameViewport.minigame = minigames["optics"]

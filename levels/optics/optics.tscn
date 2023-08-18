@@ -15,58 +15,19 @@ target_position = Vector2(52, 0)
 collide_with_areas = true
 
 [node name="LaserBeam" type="Line2D" parent="."]
-points = PackedVector2Array(19, 74, 105, 74, 172, 40, 262, 118)
+points = PackedVector2Array(19, 74, 103, 75, 105, 74, 172, 40, 262, 118)
 width = 1.0
 default_color = Color(0.905882, 0, 0, 1)
 joint_mode = 2
 
 [node name="Emitter" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(30, 29)
+position = Vector2(22, 13)
 scale = Vector2(1.21293, 1.375)
 texture = ExtResource("2_fcxso")
 
-[node name="Mirror" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(170, 34.5)
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror2" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(225, 62)
-rotation = -0.237941
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror3" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(235, 35)
-rotation = 0.823265
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror4" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(156, 81)
-rotation = 1.3425
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror5" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(106, 75)
-rotation = 2.88518
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror6" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(70, 28)
-rotation = 3.82839
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror7" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(15, 145)
-rotation = 3.82839
-scale = Vector2(0.109375, -3)
-
-[node name="Mirror8" parent="." instance=ExtResource("2_isxrc")]
-position = Vector2(109, 141)
-rotation = 3.82839
-scale = Vector2(0.109375, -3)
-
 [node name="LightSink" parent="." instance=ExtResource("3_y0mhm")]
-position = Vector2(259, 87)
+position = Vector2(17, 120)
 
 [node name="Wall" parent="." instance=ExtResource("5_7uqgw")]
 position = Vector2(138.687, 113.075)
@@ -74,11 +35,65 @@ rotation = 1.57079
 scale = Vector2(1.9023, 5.65697)
 
 [node name="Wall2" parent="." instance=ExtResource("5_7uqgw")]
-position = Vector2(256, 72.9364)
-rotation = 3.14159
-scale = Vector2(2.56214, 5.29549)
+position = Vector2(128.197, 106)
+scale = Vector2(0.447865, 5.65697)
 
 [node name="Wall3" parent="." instance=ExtResource("5_7uqgw")]
-position = Vector2(85.2584, 43.9562)
+position = Vector2(84.3645, 31.7571)
 rotation = 4.72528
-scale = Vector2(1.76032, 5.29549)
+scale = Vector2(1.27286, 7.39754)
+
+[node name="Wall4" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(27, 90)
+rotation = 3.14159
+scale = Vector2(1.10032, 5.29549)
+
+[node name="Wall6" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(48.8617, 135.71)
+rotation = 2.48709
+scale = Vector2(1.21994, 4.27003)
+
+[node name="Wall7" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(92.5, 63.8928)
+scale = Vector2(0.58, 9.7855)
+
+[node name="Wall8" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(151, 24)
+rotation = 2.16072
+scale = Vector2(0.881091, 7.57099)
+
+[node name="Wall5" parent="." instance=ExtResource("5_7uqgw")]
+position = Vector2(67.4156, 64.1022)
+rotation = 3.14159
+scale = Vector2(0.606942, 9.49997)
+
+[node name="Mirrors" type="Node2D" parent="."]
+
+[node name="Mirror" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(96, 47)
+rotation = -0.479966
+scale = Vector2(1, 1)
+
+[node name="Mirror3" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(148, 51)
+rotation = 2.00189
+
+[node name="Mirror5" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(120, 130)
+rotation = 1.05243
+
+[node name="Mirror9" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(79, 143)
+rotation = 1.05243
+
+[node name="Mirror6" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(65, 14)
+rotation = -2.4548
+
+[node name="Mirror7" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(129, 17)
+rotation = -1.08036
+
+[node name="Mirror8" parent="Mirrors" instance=ExtResource("2_isxrc")]
+position = Vector2(14, 54)
+rotation = -0.118682

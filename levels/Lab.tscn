@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=15 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
 [ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmn6hs2k6fno7" path="res://components/minigame_selector/MinigameSelector.tscn" id="11_rjiue"]
 [ext_resource type="Texture2D" uid="uid://bx4ddvffvn835" path="res://assets/visual/microchip.png" id="12_jnc5f"]
 [ext_resource type="Texture2D" uid="uid://di3cweafgpo4c" path="res://assets/visual/CPU.png" id="12_ulmjj"]
+[ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="13_brvkl"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_6l1vn")
@@ -69,8 +70,14 @@ texture = ExtResource("12_jnc5f")
 position = Vector2(32, 100)
 texture = ExtResource("12_ulmjj")
 
+[node name="OpticsMingame" parent="." instance=ExtResource("11_rjiue")]
+position = Vector2(74, 105)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("13_brvkl")
+
 [node name="Mouse" parent="." instance=ExtResource("10_tpgvr")]
 top_level = true
 
 [connection signal="select" from="WiresMinigameSelector" to="." method="_on_wires_minigame_selector_select"]
 [connection signal="select" from="LogicMinigame" to="." method="_on_logic_minigame_select"]
+[connection signal="select" from="OpticsMingame" to="." method="_on_optics_mingame_select"]

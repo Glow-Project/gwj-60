@@ -1,13 +1,13 @@
 extends Node2D
 
-@export var is_in_viewport: bool = true
+@export var is_in_viewport := true
 
 var source: Jack = null
 var destination: Jack = null
 
 var current_cable: Cable
 
-var pressed: bool = false
+var pressed := false
 
 var cable_prototype: PackedScene = preload("res://components/wires/Cable.tscn")
 
@@ -45,7 +45,7 @@ func _input(event):
 func on_mouse_move(event: InputEventMouseMotion) -> void:
 	if current_cable != null:
 		if is_in_viewport:
-			current_cable.update_destination(event.position - get_viewport().get_parent().position)
+			current_cable.update_destination(event.position - viewport.position)
 		else:
 			current_cable.update_destination(event.position)
 

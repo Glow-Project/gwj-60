@@ -2,7 +2,7 @@ extends Sprite2D
 
 class_name Jack
 
-var in_use :bool = false
+var in_use: bool = false
 
 @onready var area: Area2D = $Shape
 
