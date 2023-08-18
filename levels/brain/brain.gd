@@ -2,6 +2,9 @@ extends Node2D
 
 class_name Brain
 
+var point_index: int = 0
+var last_update: float = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,6 +12,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if last_update + delta < 0.01:
+		last_update += delta
+		return
+	
+	last_update = 0
+	
+	if point_index >= $RobotLine.points.size()-2:
+		point_index = 0
+	
+	$ShowLine.add_point($RobotLine.get_point_position(point_index))
+	$ShowLine.add_point($RobotLine.get_point_position(point_index+1))
+	
+	for n in max(0,$ShowLine.points.size()-5):
+		$ShowLine.remove_point(0)
+	
+	point_index += 1
+
+func update_robot_line():
 	$RobotLine.clear_points()
 	
 	var index: int = 0
@@ -25,7 +46,16 @@ func _process(delta):
 		
 		$RobotLine.add_point(robotPoint)
 		index += 1
+	
 
+func _on_knob_a_on_value_change(int):
+	update_robot_line()
 
-func _on_button_pressed():
-	pass
+func _on_knob_b_on_value_change(int):
+	update_robot_line()
+
+func _on_knob_c_on_value_change(int):
+	update_robot_line()
+
+func _on_knob_d_on_value_change(value: int):
+	$RobotLine.default_color.a = float(value+10)/50
