@@ -13,6 +13,11 @@ var test_suite_scene := preload("res://components/displays/test_suite/TestSuite.
 func _ready() -> void:
 	boot_radio_screen()
 	boot_test_suite_screen()
+	var tree := get_tree()
+	tree.paused = true
+	$AnimationPlayer.play("intro")
+	await $AnimationPlayer.animation_finished
+	tree.paused = false
 
 func boot_radio_screen() -> void:
 	var radio_display = radio_display_scene.instantiate()

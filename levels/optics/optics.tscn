@@ -72,7 +72,6 @@ scale = Vector2(0.606942, 9.49997)
 [node name="Mirror" parent="Mirrors" instance=ExtResource("2_isxrc")]
 position = Vector2(96, 47)
 rotation = -0.479966
-scale = Vector2(1, 1)
 
 [node name="Mirror3" parent="Mirrors" instance=ExtResource("2_isxrc")]
 position = Vector2(148, 51)

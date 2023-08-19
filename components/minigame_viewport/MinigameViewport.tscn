@@ -12,6 +12,7 @@ offset_bottom = 159.0
 script = ExtResource("1_u2vvc")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
 handle_input_locally = false
 physics_object_picking = true
 gui_disable_input = true

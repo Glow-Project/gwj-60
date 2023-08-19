@@ -4,12 +4,18 @@ signal boot_start()
 signal boot_success()
 signal boot_fail()
 
+
 @export var minigames: Array = []
 
 @onready var boot_btn: Button = %BootButton
 @onready var output: RichTextLabel = %Output
+@onready var health_view: RichTextLabel = %HealthView
 @onready var default_output_text := output.text
 @onready var anim: AnimationPlayer = $AnimationPlayer
+
+func boot() -> void:
+	health_view.hide()
+	boot_btn.show()
 
 func run_tests() -> void:
 	boot_btn.hide()

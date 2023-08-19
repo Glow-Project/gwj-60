@@ -18,16 +18,18 @@ func _input(event: InputEvent) -> void:
 		emit_signal("select")
 
 func _on_mouse_entered() -> void:
+	if not mouse_inside:
+		$AudioStreamPlayer.play()
 	mouse_inside = true
 	sprite.material.shader = highlight_shader
 	var tween = create_custom_tween()
-	tween.tween_property(sprite, "position", Vector2(0, -5), .5)
+	tween.tween_property(sprite, "position", Vector2(0, -5), .25)
 
 func _on_mouse_exited() -> void:
 	mouse_inside = false
 	sprite.material.shader = null
 	var tween = create_custom_tween()
-	tween.tween_property(sprite, "position", Vector2.ZERO, .5) 
+	tween.tween_property(sprite, "position", Vector2.ZERO, .25) 
 
 func create_custom_tween() -> Tween:
-	return get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_QUART)
+	return get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_SPRING)

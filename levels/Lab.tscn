@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=20 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
 [ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
@@ -7,16 +7,155 @@
 [ext_resource type="AudioStream" uid="uid://cwte4lqwvpwq8" path="res://assets/audio/MellowOnDaRoof.mp3" id="5_oled1"]
 [ext_resource type="PackedScene" uid="uid://b4usrek4ic1fn" path="res://components/screen/Screen.tscn" id="6_8ncxa"]
 [ext_resource type="PackedScene" uid="uid://sbcwvyngkfhg" path="res://components/robot_head/RobotHead.tscn" id="7_1vc8v"]
-[ext_resource type="PackedScene" uid="uid://vc5njlr718k" path="res://levels/mock_minigame/MockMinigame.tscn" id="8_nlr1q"]
 [ext_resource type="PackedScene" uid="uid://baiy8vimqg8hg" path="res://components/minigame_viewport/MinigameViewport.tscn" id="9_0bexr"]
 [ext_resource type="PackedScene" uid="uid://bkqm1fe1ffnxb" path="res://components/mouse/Mouse.tscn" id="10_tpgvr"]
 [ext_resource type="PackedScene" uid="uid://dmn6hs2k6fno7" path="res://components/minigame_selector/MinigameSelector.tscn" id="11_rjiue"]
 [ext_resource type="Texture2D" uid="uid://bx4ddvffvn835" path="res://assets/visual/microchip.png" id="12_jnc5f"]
 [ext_resource type="Texture2D" uid="uid://di3cweafgpo4c" path="res://assets/visual/CPU.png" id="12_ulmjj"]
 [ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="13_brvkl"]
+[ext_resource type="Texture2D" uid="uid://w18nj5eukl2j" path="res://assets/visual/Note.png" id="14_k2ufa"]
+
+[sub_resource type="Gradient" id="Gradient_31j02"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.484375, 0.523438, 0.601563, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_akq7u"]
+gradient = SubResource("Gradient_31j02")
+
+[sub_resource type="Animation" id="Animation_njiie"]
+resource_name = "intro"
+length = 10.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.43, -0.25, 0, 0.25, 0, 2.43, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8, 9.9)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.43, -0.25, 0, 0.25, 0, 2.43, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8, 9.9)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(70, -0.25, 0, 0.25, 0, 70, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8, 9.9)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(69, -0.25, 0, 0.25, 0, 69, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8, 9.9)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RobotHead/AnimatedSprite2D:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"green"]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RobotHead")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fail_boot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_50v6t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(160, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkom3"]
+_data = {
+"RESET": SubResource("Animation_50v6t"),
+"intro": SubResource("Animation_njiie")
+}
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_6l1vn")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 80)
+scale = Vector2(1.25, 160)
+texture = SubResource("GradientTexture1D_akq7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.352941, 0.352941, 0.352941, 1)
@@ -28,39 +167,29 @@ centered = false
 position = Vector2(77, 24)
 scale = Vector2(3.41406, 3.63086)
 energy = 1.76
+shadow_filter = 2
+shadow_filter_smooth = 0.7
 texture = ExtResource("2_x2ckh")
-
-[node name="Radio" parent="." instance=ExtResource("4_yen6p")]
-position = Vector2(31, 78)
-stream = ExtResource("5_oled1")
-volume_db = -5.0
-autoplay = true
-
-[node name="RadioScreen" parent="." instance=ExtResource("6_8ncxa")]
-position = Vector2(39, 52)
-
-[node name="TestSuiteScreen" parent="." instance=ExtResource("6_8ncxa")]
-position = Vector2(103, 52)
-
-[node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
-position = Vector2(70, 69)
-
-[node name="Minigames" type="Node2D" parent="."]
-
-[node name="Wires" parent="Minigames" instance=ExtResource("8_nlr1q")]
-
-[node name="LogicGates" parent="Minigames" instance=ExtResource("8_nlr1q")]
-
-[node name="Brain" parent="Minigames" instance=ExtResource("8_nlr1q")]
-
-[node name="Mock" parent="Minigames" instance=ExtResource("8_nlr1q")]
-result = "Something went wrong"
 
 [node name="MinigameViewport" parent="." instance=ExtResource("9_0bexr")]
 offset_left = 163.0
 offset_top = 0.0
 offset_right = 321.0
 offset_bottom = 160.0
+
+[node name="Mouse" parent="." instance=ExtResource("10_tpgvr")]
+process_mode = 3
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+position = Vector2(160, 80)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_nkom3")
+}
 
 [node name="WiresMinigameSelector" parent="." instance=ExtResource("11_rjiue")]
 position = Vector2(108, 90)
@@ -71,13 +200,36 @@ position = Vector2(32, 100)
 texture = ExtResource("12_ulmjj")
 
 [node name="OpticsMingame" parent="." instance=ExtResource("11_rjiue")]
-position = Vector2(74, 105)
+position = Vector2(114, 110)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("13_brvkl")
 
-[node name="Mouse" parent="." instance=ExtResource("10_tpgvr")]
-top_level = true
+[node name="TutorialCard" parent="." instance=ExtResource("11_rjiue")]
+position = Vector2(70, 107)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("14_k2ufa")
+
+[node name="RadioScreen" parent="." instance=ExtResource("6_8ncxa")]
+position = Vector2(39, 52)
+
+[node name="TestSuiteScreen" parent="." instance=ExtResource("6_8ncxa")]
+position = Vector2(103, 52)
+
+[node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
+process_mode = 3
+position = Vector2(70, 69)
+
+[node name="Radio" parent="." instance=ExtResource("4_yen6p")]
+position = Vector2(31, 78)
+stream = ExtResource("5_oled1")
+volume_db = -5.0
+autoplay = true
+
+[node name="AtmospherePlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="select" from="WiresMinigameSelector" to="." method="_on_wires_minigame_selector_select"]
 [connection signal="select" from="LogicMinigame" to="." method="_on_logic_minigame_select"]
 [connection signal="select" from="OpticsMingame" to="." method="_on_optics_mingame_select"]
+[connection signal="select" from="TutorialCard" to="." method="_on_optics_mingame_select"]
+
+[editable path="RobotHead"]

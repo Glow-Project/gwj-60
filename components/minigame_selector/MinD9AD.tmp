@@ -21,7 +21,6 @@ shape = SubResource("RectangleShape2D_auirm")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_se53f")
-volume_db = -10.0
 pitch_scale = 0.5
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
