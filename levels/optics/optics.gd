@@ -24,22 +24,24 @@ func _process(delta):
 		if !$RayCast.is_colliding():
 			$LightSink.unhighlight()
 			$LaserBeam.add_point($RayCast.global_position + $RayCast.target_position)
-			return
+			break
 		
 		$LaserBeam.add_point($RayCast.get_collision_point())
 		
 		if $RayCast.get_collider().name == "WallArea":
-			return
+			break
 	
 		if $RayCast.get_collider() == $LightSink/Area2D:
 			$LightSink.highlight()
-			return
+			break
 		
 		reflect_target = (
 			$RayCast.get_collision_point() - $RayCast.global_position
 			).bounce($RayCast.get_collision_normal())
 		$RayCast.global_position = $RayCast.get_collision_point() + reflect_target.normalized()*2
 		$RayCast.target_position = reflect_target.normalized()*300
+
+	$LaserSoundPlayer.pitch_scale = log($LaserBeam.points.size())*2
 
 func validate() -> String:
 	return "" if $LightSink.highlighted else "target did not receive laser beam"

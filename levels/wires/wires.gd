@@ -11,6 +11,13 @@ var pressed := false
 
 var cable_prototype: PackedScene = preload("res://components/wires/Cable.tscn")
 
+var cable_sounds: Array = [
+	preload("res://assets/audio/cable_in1.mp3"),
+	preload("res://assets/audio/cable_in2.mp3"),
+	preload("res://assets/audio/cable_in3.mp3"),
+	preload("res://assets/audio/cable_in4.mp3")
+]
+
 @onready var viewport: SubViewportContainer = get_viewport().get_parent() if is_in_viewport else null
 
 # Called when the node enters the scene tree for the first time.
@@ -89,6 +96,10 @@ func on_mouse_click(event: InputEventMouseButton) -> void:
 		current_cable = null
 		source.unhighlight()
 		source = null
+		
+	if not $CableIn.playing:
+		$CableIn.stream = cable_sounds.pick_random()
+		$CableIn.play()
 		
 	pressed = event.is_pressed()
 
