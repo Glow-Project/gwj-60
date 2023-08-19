@@ -12,6 +12,7 @@ func set_source(src: Jack):
 		add_point(src.position)
 	else:
 		set_point_position(0, src.position)
+	#$CableInSound.play()
 
 func set_destination(dst: Jack):
 	destination = dst

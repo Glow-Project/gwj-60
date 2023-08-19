@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://337oa506glvi"]
+[gd_scene load_steps=7 format=3 uid="uid://337oa506glvi"]
 
 [ext_resource type="Script" path="res://levels/optics/optics.gd" id="1_66lwc"]
 [ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="2_fcxso"]
 [ext_resource type="PackedScene" uid="uid://cgopd24l6timg" path="res://components/optics/Mirror.tscn" id="2_isxrc"]
 [ext_resource type="PackedScene" uid="uid://ds3bbdr5tybtw" path="res://components/optics/LightSink.tscn" id="3_y0mhm"]
 [ext_resource type="PackedScene" uid="uid://dvbeqb2omfvyo" path="res://components/optics/Wall.tscn" id="5_7uqgw"]
+[ext_resource type="AudioStream" uid="uid://upyxkgpooyb8" path="res://assets/audio/sine.mp3" id="6_6km2d"]
 
 [node name="Optics" type="Node2D"]
 script = ExtResource("1_66lwc")
@@ -96,3 +97,12 @@ rotation = -1.08036
 [node name="Mirror8" parent="Mirrors" instance=ExtResource("2_isxrc")]
 position = Vector2(14, 54)
 rotation = -0.118682
+
+[node name="LaserSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6km2d")
+volume_db = -30.0
+autoplay = true
+bus = &"FX"
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
