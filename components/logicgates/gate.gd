@@ -15,6 +15,8 @@ var type_textures = [
 	preload("res://assets/visual/gate_one.png")
 ]
 
+var highlight_shader := preload("res://components/minigame_selector/Highlight.gdshader")
+
 @export var input1: GateConnection : set = set_input1
 @export var input2: GateConnection : set = set_input2
 
@@ -28,6 +30,7 @@ var pressed: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	texture = type_textures[type]
+	material = material.duplicate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -57,9 +60,13 @@ func _input(event):
 
 func _on_area_2d_mouse_entered():
 	focus = true
+	if type == GateTypeEnum.IN:
+		material.shader = highlight_shader
 
 func _on_area_2d_mouse_exited():
 	focus = false
+	if type == GateTypeEnum.IN:
+		material.shader = null
 
 func set_input1(latch: GateConnection) -> void:
 	input1 = latch
