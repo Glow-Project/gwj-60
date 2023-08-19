@@ -1,23 +1,15 @@
 extends Node2D
-
 class_name Knob
 
 signal on_value_change(int)
 
+# https://imgflip.com/i/7w9brq
 @export var is_in_viewport := false : set = _set_is_in_viewport
 
 var focus: bool = false
 var pressed := false
 var viewport: SubViewportContainer = null
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _procsss(delta):
-	pass
-	
 func _set_is_in_viewport(value: bool) -> void:
 	is_in_viewport = value
 	if is_in_viewport:

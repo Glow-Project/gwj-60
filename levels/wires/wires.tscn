@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1i7njcm3tgor"]
+[gd_scene load_steps=5 format=3 uid="uid://1i7njcm3tgor"]
 
 [ext_resource type="Script" path="res://levels/wires/wires.gd" id="1_w52yc"]
 [ext_resource type="Texture2D" uid="uid://b57exrm1qf16j" path="res://assets/visual/wires_background.png" id="2_inuvj"]
 [ext_resource type="PackedScene" uid="uid://cpji2x3ql50cx" path="res://components/wires/jack.tscn" id="2_jfcml"]
-[ext_resource type="AudioStream" uid="uid://dt2572x5mbv1n" path="res://assets/audio/cable_in.mp3" id="4_puhkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1bo4"]
 size = Vector2(124, 117)
@@ -72,8 +71,3 @@ modulate = Color(0, 0, 1, 1)
 position = Vector2(127, 108)
 
 [node name="Cables" type="Node2D" parent="."]
-
-[node name="CableIn" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_puhkn")
-volume_db = -10.0
-bus = &"FX"

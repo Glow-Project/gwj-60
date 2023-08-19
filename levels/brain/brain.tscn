@@ -23,6 +23,7 @@ scale = Vector2(1.25, 159)
 texture = SubResource("GradientTexture1D_n2big")
 
 [node name="GoalLine" type="Line2D" parent="."]
+position = Vector2(-107, 0)
 points = PackedVector2Array(179, 89, 179, 44, 157, 14, 135, 44, 135, 89, 179, 44, 135, 44, 179, 89, 135, 89)
 width = 2.0
 default_color = Color(0.654902, 0.654902, 0.654902, 1)
@@ -31,6 +32,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="RobotLine" type="Line2D" parent="."]
+position = Vector2(-107, 0)
 width = 2.0
 default_color = Color(0, 0, 0, 0)
 joint_mode = 2
@@ -38,30 +40,31 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="ShowLine" type="Line2D" parent="."]
+position = Vector2(-107, 0)
 width = 2.0
 default_color = Color(1, 0, 0, 0.756863)
 
 [node name="KnobA" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(124, 127)
+position = Vector2(17, 127)
 rotation = 2.33269
 
 [node name="KnobB" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(144, 127)
+position = Vector2(37, 127)
 rotation = 0.865151
 
 [node name="KnobC" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(162, 127)
+position = Vector2(55, 127)
 rotation = -2.43738
 
 [node name="KnobD" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(180, 127)
+position = Vector2(73, 127)
 rotation = -2.43738
 
 [node name="LabelA" type="Label" parent="."]
 texture_filter = 1
-offset_left = 120.0
+offset_left = 13.0
 offset_top = 138.0
-offset_right = 130.0
+offset_right = 23.0
 offset_bottom = 152.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -69,9 +72,9 @@ text = "A"
 
 [node name="LabelB" type="Label" parent="."]
 texture_filter = 1
-offset_left = 140.0
+offset_left = 33.0
 offset_top = 138.0
-offset_right = 150.0
+offset_right = 43.0
 offset_bottom = 152.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -79,9 +82,9 @@ text = "B"
 
 [node name="LabelC" type="Label" parent="."]
 texture_filter = 1
-offset_left = 158.0
+offset_left = 51.0
 offset_top = 138.0
-offset_right = 168.0
+offset_right = 61.0
 offset_bottom = 152.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -89,9 +92,9 @@ text = "C"
 
 [node name="LabelD" type="Label" parent="."]
 texture_filter = 1
-offset_left = 176.0
+offset_left = 69.0
 offset_top = 138.0
-offset_right = 186.0
+offset_right = 79.0
 offset_bottom = 152.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)

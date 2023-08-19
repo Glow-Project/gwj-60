@@ -15,4 +15,5 @@ func _ready() -> void:
 	set_process_unhandled_input(true)
 
 func _input(event: InputEvent) -> void:
-	$SubViewport.get_child(0)._input(event)
+	for child in $SubViewport.get_children():
+		child._input(event)
