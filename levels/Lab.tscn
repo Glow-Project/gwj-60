@@ -22,6 +22,53 @@ colors = PackedColorArray(0.484375, 0.523438, 0.601563, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_akq7u"]
 gradient = SubResource("Gradient_31j02")
 
+[sub_resource type="Animation" id="Animation_50v6t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(160, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_njiie"]
 resource_name = "intro"
 length = 10.0
@@ -96,53 +143,6 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_50v6t"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:zoom:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:zoom:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera2D:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(160, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Camera2D:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nkom3"]
 _data = {
 "RESET": SubResource("Animation_50v6t"),
@@ -171,32 +171,7 @@ shadow_filter = 2
 shadow_filter_smooth = 0.7
 texture = ExtResource("2_x2ckh")
 
-[node name="Radio" parent="." instance=ExtResource("4_yen6p")]
-position = Vector2(31, 78)
-stream = ExtResource("5_oled1")
-volume_db = -10.0
-autoplay = true
-bus = &"Radio"
-
-[node name="RadioScreen" parent="." instance=ExtResource("6_8ncxa")]
-position = Vector2(39, 52)
-
-[node name="TestSuiteScreen" parent="." instance=ExtResource("6_8ncxa")]
-position = Vector2(103, 52)
-
-[node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
-position = Vector2(70, 69)
-
 [node name="Minigames" type="Node2D" parent="."]
-
-[node name="Wires" parent="Minigames" instance=ExtResource("8_nlr1q")]
-
-[node name="LogicGates" parent="Minigames" instance=ExtResource("8_nlr1q")]
-
-[node name="Brain" parent="Minigames" instance=ExtResource("8_nlr1q")]
-
-[node name="Mock" parent="Minigames" instance=ExtResource("8_nlr1q")]
-result = "Something went wrong"
 
 [node name="MinigameViewport" parent="." instance=ExtResource("9_0bexr")]
 offset_left = 163.0
