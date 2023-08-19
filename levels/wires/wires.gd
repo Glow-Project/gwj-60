@@ -78,7 +78,7 @@ func on_mouse_click(event: InputEventMouseButton) -> void:
 		
 	# remove previous cables (if any)
 	var previous_cable: Cable = find_cable(selected_jack)
-	if previous_cable != null and previous_cable.is_fully_connected():
+	if previous_cable != null:
 		$Cables.remove_child(previous_cable)
 	
 	if event.is_pressed():
