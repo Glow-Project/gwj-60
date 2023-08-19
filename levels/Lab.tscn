@@ -171,6 +171,33 @@ shadow_filter = 2
 shadow_filter_smooth = 0.7
 texture = ExtResource("2_x2ckh")
 
+[node name="Radio" parent="." instance=ExtResource("4_yen6p")]
+position = Vector2(31, 78)
+stream = ExtResource("5_oled1")
+volume_db = -10.0
+autoplay = true
+bus = &"Radio"
+
+[node name="RadioScreen" parent="." instance=ExtResource("6_8ncxa")]
+position = Vector2(39, 52)
+
+[node name="TestSuiteScreen" parent="." instance=ExtResource("6_8ncxa")]
+position = Vector2(103, 52)
+
+[node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
+position = Vector2(70, 69)
+
+[node name="Minigames" type="Node2D" parent="."]
+
+[node name="Wires" parent="Minigames" instance=ExtResource("8_nlr1q")]
+
+[node name="LogicGates" parent="Minigames" instance=ExtResource("8_nlr1q")]
+
+[node name="Brain" parent="Minigames" instance=ExtResource("8_nlr1q")]
+
+[node name="Mock" parent="Minigames" instance=ExtResource("8_nlr1q")]
+result = "Something went wrong"
+
 [node name="MinigameViewport" parent="." instance=ExtResource("9_0bexr")]
 offset_left = 163.0
 offset_top = 0.0
