@@ -177,13 +177,13 @@ offset_top = 0.0
 offset_right = 321.0
 offset_bottom = 160.0
 
-[node name="Mouse" parent="." instance=ExtResource("10_tpgvr")]
-process_mode = 3
-top_level = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
 position = Vector2(160, 80)
+
+[node name="Mouse" parent="Camera2D" instance=ExtResource("10_tpgvr")]
+process_mode = 3
+top_level = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
