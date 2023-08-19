@@ -2,14 +2,17 @@ extends Node2D
 class_name Brain
 
 # https://imgflip.com/i/7w9brq
-@export var is_in_viewport := true
+@export var is_in_viewport := true : set = _set_is_in_viewport
 
 var point_index: int = 0
 var last_update: float = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var viewport: SubViewportContainer = null
+
+func _set_is_in_viewport(value: bool) -> void:
+	for child in get_children():
+		if child.name.contains("Knob"):
+			child.is_in_viewport = value
 
 func _input(event: InputEvent) -> void:
 	for child in get_children():
