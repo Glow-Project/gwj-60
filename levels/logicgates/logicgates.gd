@@ -14,7 +14,7 @@ func _process(delta):
 
 func _input(event: InputEvent) -> void:
 	for child in get_children():
-		if child is Sprite2D:
+		if child is Sprite2D and child != $Background:
 			child._input(event)
 
 func validate() -> String:
