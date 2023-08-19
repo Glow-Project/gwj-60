@@ -22,7 +22,8 @@ func reload_minigames() -> void:
 	minigames = {
 		"wires": preload("res://levels/wires/wires.tscn").instantiate(),
 		"logic": preload("res://levels/logicgates/logicgates.tscn").instantiate(),
-		"optics": preload("res://levels/optics/optics.tscn").instantiate()
+		"optics": preload("res://levels/optics/optics.tscn").instantiate(),
+		"brain": preload("res://levels/brain/brain.tscn").instantiate()
 	}
 
 func boot_radio_screen() -> void:
@@ -51,3 +52,6 @@ func _on_logic_minigame_select() -> void:
 
 func _on_optics_mingame_select() -> void:
 	$MinigameViewport.minigame = minigames["optics"]
+
+func _on_brain_minigame_select() -> void:
+	$MinigameViewport.minigame = minigames["brain"]

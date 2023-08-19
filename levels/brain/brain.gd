@@ -1,6 +1,8 @@
 extends Node2D
-
 class_name Brain
+
+# https://imgflip.com/i/7w9brq
+@export var is_in_viewport := true
 
 var point_index: int = 0
 var last_update: float = 0
@@ -9,6 +11,10 @@ var last_update: float = 0
 func _ready():
 	pass # Replace with function body.
 
+func _input(event: InputEvent) -> void:
+	for child in get_children():
+		if child.name.contains("Knob"):
+			child._input(event)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
