@@ -4,6 +4,7 @@ var radio_display_scene := preload("res://components/displays/radio/RadioDisplay
 var test_suite_scene := preload("res://components/displays/test_suite/TestSuite.tscn")
 
 var radio_display: RadioDisplay
+var test_suite: TestSuite
 
 @onready var robot_head: RobotHead = $RobotHead
 @onready var anim: AnimationPlayer = $AnimationPlayer
@@ -37,6 +38,8 @@ func reload_minigames() -> void:
 		"optics": preload("res://levels/optics/optics.tscn").instantiate(),
 		"brain": preload("res://levels/brain/brain.tscn").instantiate()
 	}
+	if test_suite:
+		test_suite.minigames = minigames.values()
 
 func boot_radio_screen() -> void:
 	radio_display = radio_display_scene.instantiate()
@@ -44,10 +47,19 @@ func boot_radio_screen() -> void:
 	$RadioScreen.child_scene = radio_display
 
 func boot_test_suite_screen():
-	var test_suite = test_suite_scene.instantiate()
+	test_suite = test_suite_scene.instantiate()
 	test_suite.minigames = minigames.values()
 	test_suite.connect("boot_start", func(): robot_head.start_booting())
-	test_suite.connect("boot_success", func(): robot_head.success_boot())
+	test_suite.connect("boot_success", func(): 
+		robot_head.success_boot()
+		var tw := create_tween()
+		tw.tween_property($Radio, "volume_db", -60, 1)
+		await tw.finished
+		get_tree().paused = true
+		anim.play("outro")
+		await anim.animation_finished
+		get_tree().reload_current_scene()
+	)
 	test_suite.connect("boot_fail", func():
 		robot_head.fail_boot()
 		reload_minigames()

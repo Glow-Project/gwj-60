@@ -34,8 +34,9 @@ func _process(delta):
 	if point_index >= $RobotLine.points.size()-2:
 		point_index = 0
 	
-	$ShowLine.add_point($RobotLine.get_point_position(point_index))
-	$ShowLine.add_point($RobotLine.get_point_position(point_index+1))
+	if $RobotLine.get_point_count() > 0:
+		$ShowLine.add_point($RobotLine.get_point_position(point_index))
+		$ShowLine.add_point($RobotLine.get_point_position(point_index+1))
 	
 	for n in max(0,$ShowLine.points.size()-5):
 		$ShowLine.remove_point(0)
