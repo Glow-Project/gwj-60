@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://fynob4lpya2l"]
+[gd_scene load_steps=14 format=3 uid="uid://fynob4lpya2l"]
 
 [ext_resource type="Texture2D" uid="uid://cbmjolvv580xm" path="res://assets/visual/pour_entertainment_clean_sheet.png" id="1_dowg5"]
 [ext_resource type="Script" path="res://levels/intro/Intro.gd" id="1_n05jm"]
 [ext_resource type="AudioStream" uid="uid://god07lefxnmp" path="res://assets/audio/Enter.wav" id="2_e3mu0"]
 [ext_resource type="Texture2D" uid="uid://kbifi0vc6mx5" path="res://assets/visual/Malfunction.png" id="3_jfm6c"]
+[ext_resource type="Texture2D" uid="uid://co21a1j1gan5p" path="res://assets/visual/wrench_logo.png" id="5_uhpra"]
 
 [sub_resource type="Gradient" id="Gradient_xmu02"]
 offsets = PackedFloat32Array(0)
@@ -101,10 +102,46 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Logo:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GameTitle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GameTitle:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qxl16"]
 resource_name = "intro"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -124,10 +161,10 @@ tracks/1/path = NodePath("LogoClick:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.45),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.45, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -136,10 +173,10 @@ tracks/2/path = NodePath("Logo:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 1.5, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -148,10 +185,10 @@ tracks/3/path = NodePath("GWJLogo:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -160,10 +197,46 @@ tracks/4/path = NodePath("GWJLogo:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Logo:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GameTitle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GameTitle:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.9, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fj0y4"]
@@ -200,5 +273,12 @@ visible = false
 position = Vector2(160, 40)
 scale = Vector2(0.0448052, 0.0448052)
 texture = ExtResource("3_jfm6c")
+
+[node name="GameTitle" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(160, 64)
+scale = Vector2(1.34086, 1.34086)
+texture = ExtResource("5_uhpra")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
