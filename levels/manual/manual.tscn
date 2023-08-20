@@ -1,8 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://fawsav5ido0q"]
+[gd_scene load_steps=17 format=3 uid="uid://fawsav5ido0q"]
 
 [ext_resource type="Script" path="res://levels/manual/manual.gd" id="1_uai17"]
 [ext_resource type="Texture2D" uid="uid://co21a1j1gan5p" path="res://assets/visual/wrench_logo.png" id="2_ccmoj"]
 [ext_resource type="FontFile" uid="uid://cimxxbq7kwgxa" path="res://assets/visual/Magero.ttf" id="3_p3suy"]
+[ext_resource type="Texture2D" uid="uid://bx4ddvffvn835" path="res://assets/visual/microchip.png" id="4_7xfck"]
+[ext_resource type="Theme" uid="uid://r37ja8f7tfif" path="res://components/manual/manual_font.tres" id="5_f5ent"]
+[ext_resource type="Texture2D" uid="uid://di3cweafgpo4c" path="res://assets/visual/CPU.png" id="6_e5stt"]
+[ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="7_4iy3t"]
+[ext_resource type="Texture2D" uid="uid://tgdjniol55je" path="res://assets/visual/knob.png" id="8_djgyw"]
+[ext_resource type="Texture2D" uid="uid://cbmjolvv580xm" path="res://assets/visual/pour_entertainment_clean_sheet.png" id="9_jx6yl"]
 
 [sub_resource type="Gradient" id="Gradient_lggds"]
 offsets = PackedFloat32Array(1)
@@ -14,13 +20,27 @@ gradient = SubResource("Gradient_lggds")
 [sub_resource type="Theme" id="Theme_6gpbt"]
 default_font = ExtResource("3_p3suy")
 
+[sub_resource type="Gradient" id="Gradient_58nwc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.207031, 0.191406, 0.324219, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dju0o"]
+gradient = SubResource("Gradient_58nwc")
+
+[sub_resource type="Gradient" id="Gradient_kcmd5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.543278, 0.523701, 0.735719, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i6hps"]
+gradient = SubResource("Gradient_kcmd5")
+
 [node name="Manual" type="Node2D"]
 position = Vector2(120, 52)
 script = ExtResource("1_uai17")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(40.5, 28)
-scale = Vector2(1.31641, 164)
+position = Vector2(-40, 28)
+scale = Vector2(0.625, 160)
 texture = SubResource("GradientTexture1D_4jfnn")
 
 [node name="Logo" type="Sprite2D" parent="."]
@@ -31,25 +51,162 @@ texture = ExtResource("2_ccmoj")
 
 [node name="ManualLabel" type="Label" parent="."]
 texture_filter = 1
-offset_left = -52.0
-offset_top = -51.0
-offset_right = 41.0
-offset_bottom = -32.0
+offset_left = -50.0
+offset_top = -52.0
+offset_right = 43.0
+offset_bottom = -33.0
+scale = Vector2(1, 1.15)
 theme = SubResource("Theme_6gpbt")
 theme_override_colors/font_color = Color(0.207031, 0.191406, 0.324219, 1)
 theme_override_font_sizes/font_size = 24
 text = "MANUAL"
+
+[node name="HLine" type="Sprite2D" parent="."]
+position = Vector2(-39.5, -31)
+scale = Vector2(0.597656, 1)
+texture = SubResource("GradientTexture1D_dju0o")
+
+[node name="GeneralLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -108.0
+offset_top = 76.0
+offset_right = 243.0
+offset_bottom = 147.0
+scale = Vector2(0.35, 0.35)
+theme = ExtResource("5_f5ent")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+bbcode_enabled = true
+text = "Visual cortex is responsible for detecting images. [color=black]Dial[/color] the [color=black]knobs[/color] so the robots red vision [color=black]matches[/color] the figure in the back."
+metadata/_edit_use_anchors_ = true
+
+[node name="HLine4" type="Sprite2D" parent="."]
+position = Vector2(-40, -18)
+scale = Vector2(0.597656, 1)
+texture = SubResource("GradientTexture1D_i6hps")
+
+[node name="WiresLogo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-107, -9)
+texture = ExtResource("4_7xfck")
+
+[node name="WiresLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -96.0
+offset_top = -16.0
+offset_right = 264.0
+offset_bottom = 38.0
+scale = Vector2(0.35, 0.35)
+theme = ExtResource("5_f5ent")
+theme_override_constants/line_separation = 2
+bbcode_enabled = true
+text = "Motion sensors are degraded due to broken cables.
+[color=black]Connect[/color] the jacks sharing the [color=black]same color[/color]."
+metadata/_edit_use_anchors_ = true
+
+[node name="HLine2" type="Sprite2D" parent="."]
+position = Vector2(-41, 3)
+scale = Vector2(0.429687, 1)
+texture = SubResource("GradientTexture1D_i6hps")
+
+[node name="LogicgatesLogo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 14)
+texture = ExtResource("6_e5stt")
+
+[node name="LogicgatesLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -115.0
+offset_top = 5.0
+offset_right = 296.0
+offset_bottom = 145.0
+scale = Vector2(0.35, 0.35)
+theme = ExtResource("5_f5ent")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+bbcode_enabled = true
+text = "The firmware introduced a bug within
+the last update.
+[color=black]Flip[/color] the [color=black]input bits[/color] on the left so the
+[color=black]output bit[/color] on the right [color=black]gets 1[/color].
+There are several logic gates along the way:
+  - and: outputs 1 if both inputs are 1
+  - or: outputs 1 if either of the inputs are 1
+  - not: outputs 1 if the input is 0
+ "
+metadata/_edit_use_anchors_ = true
+
+[node name="HLine3" type="Sprite2D" parent="."]
+position = Vector2(-44.6582, 46)
+scale = Vector2(0.552017, 1)
+texture = SubResource("GradientTexture1D_i6hps")
+
+[node name="OpticsLogo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-105, 55)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_4iy3t")
+
+[node name="OpticsLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -90.0
+offset_top = 48.0
+offset_right = 261.0
+offset_bottom = 119.0
+scale = Vector2(0.35, 0.35)
+theme = ExtResource("5_f5ent")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+bbcode_enabled = true
+text = "The high precision eye optics need are off.
+Calibrate the light path by [color=black]guiding[/color] the laser beam to the [color=black]output block[/color] by [color=black]rotatating[/color] the mirrors."
+metadata/_edit_use_anchors_ = true
+
+[node name="HLine5" type="Sprite2D" parent="."]
+position = Vector2(-31.7161, 74)
+scale = Vector2(0.455343, 1)
+texture = SubResource("GradientTexture1D_i6hps")
+
+[node name="BrainLogo2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 84)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_djgyw")
+
+[node name="BrainLabel2" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = -114.0
+offset_top = -29.0
+offset_right = 312.0
+scale = Vector2(0.35, 0.35)
+theme = ExtResource("5_f5ent")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 3
+bbcode_enabled = true
+text = "[color=darkred]To fix the robot, all four modules need to be repaired![/color]"
+
+[node name="HLine6" type="Sprite2D" parent="."]
+position = Vector2(-43.8604, 97)
+scale = Vector2(0.553596, 1)
+texture = SubResource("GradientTexture1D_dju0o")
+
+[node name="Logo2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, 103)
+scale = Vector2(0.151596, 0.151596)
+texture = ExtResource("9_jx6yl")
+offset = Vector2(10, 0)
+region_enabled = true
+region_rect = Rect2(0.319321, -0.0269775, 80.316, 47.9263)
+
+[node name="FooterLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = -114.0
+offset_top = 98.0
+offset_right = 378.0
+offset_bottom = 134.0
+scale = Vector2(0.26, 0.26)
+theme = ExtResource("5_f5ent")
+text = "All rights reserved. (C) 2023 by Pour Entertainment"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MinigameList" type="GridContainer" parent="."]
-offset_left = -117.0
-offset_top = -29.0
-offset_right = 39.0
-offset_bottom = 105.0
-columns = 2
-
-[node name="WiresLogo" type="Sprite2D" parent="MinigameList"]
-
-[node name="WiresLabel" type="Label" parent="MinigameList"]
-layout_mode = 2
