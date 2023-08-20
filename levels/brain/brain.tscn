@@ -46,19 +46,15 @@ default_color = Color(1, 0, 0, 0.756863)
 
 [node name="KnobA" parent="." instance=ExtResource("1_aqiuo")]
 position = Vector2(17, 127)
-rotation = 2.33269
 
 [node name="KnobB" parent="." instance=ExtResource("1_aqiuo")]
 position = Vector2(37, 127)
-rotation = 0.865151
 
 [node name="KnobC" parent="." instance=ExtResource("1_aqiuo")]
 position = Vector2(55, 127)
-rotation = -2.43738
 
 [node name="KnobD" parent="." instance=ExtResource("1_aqiuo")]
 position = Vector2(73, 127)
-rotation = -2.43738
 
 [node name="LabelA" type="Label" parent="."]
 texture_filter = 1

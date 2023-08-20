@@ -11,8 +11,12 @@ var viewport: SubViewportContainer = null
 
 func _set_is_in_viewport(value: bool) -> void:
 	for child in get_children():
+		print(child.name)
 		if child.name.contains("Knob"):
 			child.is_in_viewport = value
+
+func _ready() -> void:
+	_set_is_in_viewport(is_in_viewport)
 
 func _input(event: InputEvent) -> void:
 	for child in get_children():
@@ -21,7 +25,7 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if last_update + delta < 0.01:
+	if last_update + delta < 0.1:
 		last_update += delta
 		return
 	
@@ -45,8 +49,8 @@ func update_robot_line():
 	for point in $GoalLine.points:
 		point = point as Vector2
 		var robotPoint = point.rotated(
-				float($KnobA.value())/50
-			) * .5*float($KnobB.value())
+				float( $KnobA.value()) / 50
+			) * 0.5 * float($KnobB.value())
 		
 		if index % 2 == 0:
 			robotPoint += Vector2($KnobC.value() + 0.3, $KnobC.value() + 0.2)
@@ -68,3 +72,14 @@ func _on_knob_c_on_value_change(int):
 
 func _on_knob_d_on_value_change(value: int):
 	$RobotLine.default_color.a = float(value+10)/50
+
+func validate() -> String:
+	var player: Line2D = $RobotLine
+	var goal: Line2D = $GoalLine
+	
+	for i in range(0, player.get_point_count()):
+		var p_pos := player.get_point_position(i)
+		var g_pos := goal.get_point_position(i)
+		if p_pos.distance_to(g_pos) > 0.5:
+			return "image not aligned"
+	return ""

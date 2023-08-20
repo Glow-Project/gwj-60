@@ -5,14 +5,14 @@
 [ext_resource type="AudioStream" uid="uid://dvgn1keaq2eew" path="res://assets/audio/ligth_switch.mp3" id="3_28nnu"]
 [ext_resource type="AudioStream" uid="uid://dsgh5ekulr1ey" path="res://assets/audio/light_bulb_on.mp3" id="4_dtbxk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5dqph"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6rwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dore"]
 size = Vector2(64, 64)
 
 [node name="Gate" type="Sprite2D"]
 texture_filter = 1
-material = SubResource("ShaderMaterial_5dqph")
+material = SubResource("ShaderMaterial_b6rwy")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3wmwb")
 script = ExtResource("2_1rj2n")
@@ -24,13 +24,9 @@ shape = SubResource("RectangleShape2D_1dore")
 
 [node name="SwitchAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_28nnu")
-volume_db = -15.0
-bus = &"FX"
 
 [node name="OutAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dtbxk")
-volume_db = -10.0
-bus = &"FX"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

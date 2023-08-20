@@ -8,7 +8,8 @@ func _set_minigame(value) -> void:
 	minigame = value
 	if subviewport.get_child_count() == 1:
 		subviewport.remove_child(subviewport.get_child(0))
-	subviewport.add_child(minigame)
+	if minigame:
+		subviewport.add_child(minigame)
 
 func _ready() -> void:
 	set_process_input(true)
