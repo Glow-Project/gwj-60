@@ -4,6 +4,7 @@ var radio_display_scene := preload("res://components/displays/radio/RadioDisplay
 var test_suite_scene := preload("res://components/displays/test_suite/TestSuite.tscn")
 
 @onready var robot_head: RobotHead = $RobotHead
+@onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var minigames: Dictionary
 
 func _ready() -> void:
@@ -11,11 +12,19 @@ func _ready() -> void:
 	reload_minigames()
 	var suite = boot_test_suite_screen()
 	var tree := get_tree()
+	
 	tree.paused = true
-	$AnimationPlayer.play("intro")
-	await $AnimationPlayer.animation_finished
-	tree.paused = false
-	suite.boot()
+	anim.play("pre_intro")
+	anim.connect("animation_finished", func(name):
+		if name == "intro":
+			tree.paused = false
+			suite.boot()
+	)
+
+func _input(event: InputEvent) -> void:
+	if anim.current_animation == "pre_intro" and not (event is InputEventMouseMotion):
+		$PreIntro/Label.text = "Flashing firmware..."
+		anim.play("intro")
 
 func reload_minigames() -> void:
 	$MinigameViewport.minigame = null
@@ -36,7 +45,7 @@ func boot_test_suite_screen():
 	test_suite.minigames = minigames.values()
 	test_suite.connect("boot_start", func(): robot_head.start_booting())
 	test_suite.connect("boot_success", func(): robot_head.success_boot())
-	test_suite.connect("boot_fail", func(): 
+	test_suite.connect("boot_fail", func():
 		robot_head.fail_boot()
 		reload_minigames()
 	)

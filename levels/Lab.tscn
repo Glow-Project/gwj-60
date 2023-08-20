@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=26 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
 [ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
@@ -15,10 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://di3cweafgpo4c" path="res://assets/visual/CPU.png" id="12_ulmjj"]
 [ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="13_brvkl"]
 [ext_resource type="Texture2D" uid="uid://w18nj5eukl2j" path="res://assets/visual/Note.png" id="14_k2ufa"]
+[ext_resource type="FontFile" uid="uid://cimxxbq7kwgxa" path="res://assets/visual/Magero.ttf" id="15_jv8d5"]
+[ext_resource type="Shader" path="res://levels/wavy.gdshader" id="15_m1lab"]
 
 [sub_resource type="Gradient" id="Gradient_31j02"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.484375, 0.523438, 0.601563, 1)
+colors = PackedColorArray(0.00566115, 0.00566115, 0.00566115, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_akq7u"]
 gradient = SubResource("Gradient_31j02")
@@ -69,6 +71,86 @@ tracks/3/keys = {
 "points": PackedFloat32Array(80, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PreIntro/PreIntroBg:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PreIntro/Label:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PreIntro/PreIntroBg:modulate:r")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PreIntro/PreIntroBg:modulate:g")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PreIntro/PreIntroBg:modulate:b")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PreIntro/PreIntroBg:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_njiie"]
 resource_name = "intro"
@@ -114,7 +196,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(69, -0.25, 0, 0.25, 0, 69, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0, 60, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 8, 9.9)
 }
 tracks/4/type = "value"
@@ -143,14 +225,185 @@ tracks/5/keys = {
 "method": &"fail_boot"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PreIntro/PreIntroBg:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3, 8)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PreIntro/Label:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_etjo1"]
+resource_name = "pre_intro"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(70, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.43, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.43, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PreIntro/PreIntroBg:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PreIntro/PreIntroBg:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PreIntro/PreIntroBg:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PreIntro/PreIntroBg:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PreIntro/PreIntroBg:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PreIntro/Label:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nkom3"]
 _data = {
 "RESET": SubResource("Animation_50v6t"),
-"intro": SubResource("Animation_njiie")
+"intro": SubResource("Animation_njiie"),
+"pre_intro": SubResource("Animation_etjo1")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyoss"]
+shader = ExtResource("15_m1lab")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2534"]
+font = ExtResource("15_jv8d5")
+
 [node name="Lab" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_6l1vn")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -183,10 +436,6 @@ offset_bottom = 160.0
 [node name="Mouse" parent="." instance=ExtResource("10_tpgvr")]
 top_level = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-process_mode = 3
-position = Vector2(160, 80)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
@@ -194,24 +443,29 @@ libraries = {
 }
 
 [node name="WiresMinigameSelector" parent="." instance=ExtResource("11_rjiue")]
+process_mode = 1
 position = Vector2(108, 90)
 texture = ExtResource("12_jnc5f")
 
 [node name="LogicMinigame" parent="." instance=ExtResource("11_rjiue")]
+process_mode = 1
 position = Vector2(32, 100)
 texture = ExtResource("12_ulmjj")
 
 [node name="OpticsMingame" parent="." instance=ExtResource("11_rjiue")]
+process_mode = 1
 position = Vector2(114, 110)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("13_brvkl")
 
 [node name="BrainMinigame" parent="." instance=ExtResource("11_rjiue")]
+process_mode = 1
 position = Vector2(74, 91)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_605vj")
 
 [node name="TutorialCard" parent="." instance=ExtResource("11_rjiue")]
+process_mode = 1
 position = Vector2(70, 107)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_k2ufa")
@@ -222,17 +476,44 @@ position = Vector2(39, 52)
 [node name="TestSuiteScreen" parent="." instance=ExtResource("6_8ncxa")]
 position = Vector2(103, 52)
 
-[node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
-process_mode = 3
-position = Vector2(70, 69)
-
 [node name="Radio" parent="." instance=ExtResource("4_yen6p")]
+process_mode = 1
 position = Vector2(31, 78)
 stream = ExtResource("5_oled1")
 volume_db = -5.0
 autoplay = true
 
 [node name="AtmospherePlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PreIntro" type="Node2D" parent="."]
+
+[node name="PreIntroBg" type="Sprite2D" parent="PreIntro"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 80)
+scale = Vector2(1.25, 160)
+texture = SubResource("GradientTexture1D_akq7u")
+
+[node name="Label" type="Label" parent="PreIntro"]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_uyoss")
+offset_left = 1.0
+offset_top = 94.0
+offset_right = 230.0
+offset_bottom = 122.0
+scale = Vector2(0.62, 0.62)
+text = "Press any key to
+flash firmware"
+label_settings = SubResource("LabelSettings_u2534")
+horizontal_alignment = 1
+
+[node name="RobotHead" parent="." instance=ExtResource("7_1vc8v")]
+process_mode = 3
+position = Vector2(70, 69)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+position = Vector2(160, 80)
 
 [connection signal="select" from="WiresMinigameSelector" to="." method="_on_wires_minigame_selector_select"]
 [connection signal="select" from="LogicMinigame" to="." method="_on_logic_minigame_select"]
