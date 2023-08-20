@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dlgrxiwyhn8fr"]
+[gd_scene load_steps=25 format=3 uid="uid://dlgrxiwyhn8fr"]
 
 [ext_resource type="Script" path="res://levels/Lab.gd" id="1_6l1vn"]
 [ext_resource type="Texture2D" uid="uid://pxa383pokret" path="res://assets/visual/lab.png" id="1_hbbn5"]
 [ext_resource type="Texture2D" uid="uid://wjsaeatnm74p" path="res://assets/visual/light.png" id="2_x2ckh"]
 [ext_resource type="PackedScene" uid="uid://d11v00xqu2xym" path="res://components/radio/Radio.tscn" id="4_yen6p"]
-[ext_resource type="AudioStream" uid="uid://cwte4lqwvpwq8" path="res://assets/audio/MellowOnDaRoof.mp3" id="5_oled1"]
 [ext_resource type="PackedScene" uid="uid://b4usrek4ic1fn" path="res://components/screen/Screen.tscn" id="6_8ncxa"]
 [ext_resource type="PackedScene" uid="uid://sbcwvyngkfhg" path="res://components/robot_head/RobotHead.tscn" id="7_1vc8v"]
 [ext_resource type="PackedScene" uid="uid://baiy8vimqg8hg" path="res://components/minigame_viewport/MinigameViewport.tscn" id="9_0bexr"]
@@ -151,6 +150,50 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PreIntro/Label:modulate:r")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PreIntro/Label:modulate:g")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PreIntro/Label:modulate:b")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PreIntro/Label:modulate:a")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_njiie"]
 resource_name = "intro"
@@ -259,6 +302,50 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PreIntro/Label:modulate:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PreIntro/Label:modulate:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PreIntro/Label:modulate:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PreIntro/Label:modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3, 6.1)
 }
 
 [sub_resource type="Animation" id="Animation_etjo1"]
@@ -460,13 +547,13 @@ texture = ExtResource("13_brvkl")
 
 [node name="BrainMinigame" parent="." instance=ExtResource("11_rjiue")]
 process_mode = 1
-position = Vector2(74, 91)
+position = Vector2(57, 106)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_605vj")
 
 [node name="TutorialCard" parent="." instance=ExtResource("11_rjiue")]
 process_mode = 1
-position = Vector2(70, 107)
+position = Vector2(83, 107)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("14_k2ufa")
 
@@ -479,7 +566,6 @@ position = Vector2(103, 52)
 [node name="Radio" parent="." instance=ExtResource("4_yen6p")]
 process_mode = 1
 position = Vector2(31, 78)
-stream = ExtResource("5_oled1")
 volume_db = -5.0
 autoplay = true
 
@@ -520,5 +606,6 @@ position = Vector2(160, 80)
 [connection signal="select" from="OpticsMingame" to="." method="_on_optics_mingame_select"]
 [connection signal="select" from="BrainMinigame" to="." method="_on_brain_minigame_select"]
 [connection signal="select" from="TutorialCard" to="." method="_on_optics_mingame_select"]
+[connection signal="song_selected" from="Radio" to="." method="_on_radio_song_selected"]
 
 [editable path="RobotHead"]

@@ -3,6 +3,8 @@ extends Node2D
 var radio_display_scene := preload("res://components/displays/radio/RadioDisplay.tscn")
 var test_suite_scene := preload("res://components/displays/test_suite/TestSuite.tscn")
 
+var radio_display: RadioDisplay
+
 @onready var robot_head: RobotHead = $RobotHead
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var minigames: Dictionary
@@ -18,6 +20,7 @@ func _ready() -> void:
 	anim.connect("animation_finished", func(name):
 		if name == "intro":
 			tree.paused = false
+			$Radio.play_song()
 			suite.boot()
 	)
 
@@ -36,7 +39,7 @@ func reload_minigames() -> void:
 	}
 
 func boot_radio_screen() -> void:
-	var radio_display = radio_display_scene.instantiate()
+	radio_display = radio_display_scene.instantiate()
 	radio_display.connect("radio_update", func(on: bool): $Radio.playing = on)
 	$RadioScreen.child_scene = radio_display
 
@@ -64,3 +67,6 @@ func _on_optics_mingame_select() -> void:
 
 func _on_brain_minigame_select() -> void:
 	$MinigameViewport.minigame = minigames["brain"]
+
+func _on_radio_song_selected(song) -> void:
+	radio_display.set_song(song)

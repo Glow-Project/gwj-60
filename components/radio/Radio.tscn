@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d11v00xqu2xym"]
+[gd_scene load_steps=3 format=3 uid="uid://d11v00xqu2xym"]
 
 [ext_resource type="Texture2D" uid="uid://c5bblc5vtwy7d" path="res://assets/visual/radio.png" id="1_6jjpq"]
+[ext_resource type="Script" path="res://components/radio/Radio.gd" id="1_sb0fh"]
 
 [node name="Radio" type="AudioStreamPlayer2D"]
 bus = &"Radio"
+script = ExtResource("1_sb0fh")
 
 [node name="Radio" type="Sprite2D" parent="."]
 texture_filter = 1

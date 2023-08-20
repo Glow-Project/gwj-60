@@ -249,8 +249,8 @@ _data = {
 script = ExtResource("1_n05jm")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(159.5, 80.25)
-scale = Vector2(1.24609, 161.5)
+position = Vector2(160, 79.75)
+scale = Vector2(1.25, 160.5)
 texture = SubResource("GradientTexture1D_8gvmc")
 
 [node name="Logo" type="AnimatedSprite2D" parent="."]

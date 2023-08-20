@@ -28,6 +28,7 @@ grow_vertical = 2
 color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -42,11 +43,7 @@ offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.2, 0.2)
-text = "Mellow on da roof
-
-by 
-
-Beathoven"
+text = "No song selected"
 label_settings = SubResource("LabelSettings_qd3if")
 horizontal_alignment = 1
 vertical_alignment = 1
