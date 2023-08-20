@@ -1,4 +1,5 @@
 extends Control
+class_name TestSuite
 
 signal boot_start()
 signal boot_success()
