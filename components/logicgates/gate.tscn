@@ -24,9 +24,13 @@ shape = SubResource("RectangleShape2D_1dore")
 
 [node name="SwitchAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_28nnu")
+volume_db = -15.0
+bus = &"FX"
 
 [node name="OutAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dtbxk")
+volume_db = -10.0
+bus = &"FX"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
