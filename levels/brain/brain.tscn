@@ -18,8 +18,8 @@ default_font = ExtResource("2_i476u")
 script = ExtResource("1_l8xtl")
 
 [node name="Canvas" type="Sprite2D" parent="."]
-position = Vector2(160, 79.5)
-scale = Vector2(1.25, 159)
+position = Vector2(160, 80)
+scale = Vector2(1.25, 160)
 texture = SubResource("GradientTexture1D_n2big")
 
 [node name="GoalLine" type="Line2D" parent="."]
@@ -45,48 +45,86 @@ width = 2.0
 default_color = Color(1, 0, 0, 0.756863)
 
 [node name="KnobA" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(40, 127)
+position = Vector2(52, 124)
+rotation = 0.610865
 
 [node name="KnobB" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(60, 127)
+position = Vector2(72, 124)
+rotation = 1.22173
 
 [node name="KnobC" parent="." instance=ExtResource("1_aqiuo")]
-position = Vector2(78, 127)
+position = Vector2(90, 124)
 
 [node name="KnobD" parent="." instance=ExtResource("1_aqiuo")]
+visible = false
 position = Vector2(96, 127)
+rotation = 2.96706
 
 [node name="LabelA" type="Label" parent="."]
 texture_filter = 1
-offset_left = 36.0
-offset_top = 138.0
-offset_right = 46.0
-offset_bottom = 152.0
+offset_left = 48.0
+offset_top = 135.0
+offset_right = 58.0
+offset_bottom = 149.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "A"
 
+[node name="LabelA2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 7.0
+offset_top = 136.0
+offset_right = 55.0
+offset_bottom = 150.0
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_55c3b")
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+text = "11:00"
+
 [node name="LabelB" type="Label" parent="."]
 texture_filter = 1
-offset_left = 56.0
-offset_top = 138.0
-offset_right = 66.0
-offset_bottom = 152.0
+offset_left = 68.0
+offset_top = 135.0
+offset_right = 78.0
+offset_bottom = 149.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "B"
 
+[node name="LabelB2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 54.0
+offset_top = 149.0
+offset_right = 102.0
+offset_bottom = 163.0
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_55c3b")
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+text = "12:00"
+
 [node name="LabelC" type="Label" parent="."]
 texture_filter = 1
-offset_left = 74.0
-offset_top = 138.0
-offset_right = 84.0
-offset_bottom = 152.0
+offset_left = 86.0
+offset_top = 135.0
+offset_right = 96.0
+offset_bottom = 149.0
 theme = SubResource("Theme_55c3b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "C"
 
+[node name="LabelC2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 100.0
+offset_top = 136.0
+offset_right = 148.0
+offset_bottom = 150.0
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_55c3b")
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+text = "11:00"
+
 [node name="LabelD" type="Label" parent="."]
+visible = false
 texture_filter = 1
 offset_left = 92.0
 offset_top = 138.0

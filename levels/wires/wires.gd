@@ -120,7 +120,7 @@ func find_jack_in_use() -> Jack:
 func validate() -> String:
 	var children := $Cables.get_children()
 	if len(children) != $Jacks.get_child_count() / 2:
-		return "not all wires connected"
+		return "cables not connected"
 	for cable in children:
 		if cable.source.modulate != cable.destination.modulate:
 			return "wrong connection"

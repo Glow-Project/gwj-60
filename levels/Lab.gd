@@ -11,13 +11,13 @@ var test_suite: TestSuite
 @onready var minigames: Dictionary
 
 func _ready() -> void:
+	randomize()
 	boot_radio_screen()
 	reload_minigames()
 	var suite = boot_test_suite_screen()
 	var tree := get_tree()
 	
 	tree.paused = true
-	anim.play("pre_intro")
 	anim.connect("animation_finished", func(name):
 		if name == "intro":
 			tree.paused = false
@@ -38,6 +38,9 @@ func reload_minigames() -> void:
 		"optics": preload("res://levels/optics/optics.tscn").instantiate(),
 		"brain": preload("res://levels/brain/brain.tscn").instantiate()
 	}
+	minigames["logic"].name = "Logic Gates"
+	minigames["optics"].name = "Laser"
+	minigames["brain"].name = "Drawing"
 	if test_suite:
 		test_suite.minigames = minigames.values()
 

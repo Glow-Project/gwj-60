@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://fawsav5ido0q"]
+[gd_scene load_steps=16 format=3 uid="uid://fawsav5ido0q"]
 
 [ext_resource type="Script" path="res://levels/manual/manual.gd" id="1_uai17"]
 [ext_resource type="Texture2D" uid="uid://co21a1j1gan5p" path="res://assets/visual/wrench_logo.png" id="2_ccmoj"]
@@ -12,7 +12,7 @@
 
 [sub_resource type="Gradient" id="Gradient_lggds"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.94, 0.85728, 0.7144, 1)
+colors = PackedColorArray(0.482353, 0.6, 0.854902, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4jfnn"]
 gradient = SubResource("Gradient_lggds")
@@ -20,16 +20,12 @@ gradient = SubResource("Gradient_lggds")
 [sub_resource type="Theme" id="Theme_6gpbt"]
 default_font = ExtResource("3_p3suy")
 
-[sub_resource type="Gradient" id="Gradient_58nwc"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.207031, 0.191406, 0.324219, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dju0o"]
-gradient = SubResource("Gradient_58nwc")
-
 [sub_resource type="Gradient" id="Gradient_kcmd5"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.543278, 0.523701, 0.735719, 1)
+colors = PackedColorArray(0.669827, 0.656986, 0.83065, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dju0o"]
+gradient = SubResource("Gradient_kcmd5")
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_i6hps"]
 gradient = SubResource("Gradient_kcmd5")
@@ -58,6 +54,7 @@ offset_bottom = -33.0
 scale = Vector2(1, 1.15)
 theme = SubResource("Theme_6gpbt")
 theme_override_colors/font_color = Color(0.207031, 0.191406, 0.324219, 1)
+theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 24
 text = "MANUAL"
 
@@ -74,6 +71,7 @@ offset_right = 242.0
 offset_bottom = 147.0
 scale = Vector2(0.35, 0.35)
 theme = ExtResource("5_f5ent")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 3
 bbcode_enabled = true
@@ -98,11 +96,11 @@ offset_right = 263.0
 offset_bottom = 38.0
 scale = Vector2(0.35, 0.35)
 theme = ExtResource("5_f5ent")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = 2
 bbcode_enabled = true
 text = "Motion sensors are degraded due to broken cables.
 [color=black]Connect[/color] the jacks sharing the [color=black]same color[/color]."
-metadata/_edit_use_anchors_ = true
 
 [node name="HLine2" type="Sprite2D" parent="."]
 position = Vector2(-42, 3)
@@ -122,6 +120,7 @@ offset_right = 295.0
 offset_bottom = 145.0
 scale = Vector2(0.35, 0.35)
 theme = ExtResource("5_f5ent")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 3
 bbcode_enabled = true
@@ -154,6 +153,7 @@ offset_right = 260.0
 offset_bottom = 119.0
 scale = Vector2(0.35, 0.35)
 theme = ExtResource("5_f5ent")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 3
 bbcode_enabled = true
@@ -178,10 +178,12 @@ offset_top = -29.0
 offset_right = 311.0
 scale = Vector2(0.35, 0.35)
 theme = ExtResource("5_f5ent")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = 3
+theme_override_constants/outline_size = 1
 bbcode_enabled = true
-text = "[color=darkred]To fix the robot, all four modules need to be repaired![/color]"
+text = "[color=darkred]To fix the robot, all four modules need to be repaired![/color]      [color=yellow]reading this is optional![/color]"
 
 [node name="HLine6" type="Sprite2D" parent="."]
 position = Vector2(-44.8604, 97)
@@ -205,6 +207,7 @@ offset_right = 377.0
 offset_bottom = 134.0
 scale = Vector2(0.26, 0.26)
 theme = ExtResource("5_f5ent")
+theme_override_constants/outline_size = 1
 text = "All rights reserved. (C) 2023 by Pour Entertainment"
 horizontal_alignment = 1
 vertical_alignment = 1

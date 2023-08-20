@@ -75,12 +75,13 @@ func _on_knob_d_on_value_change(value: int):
 	$RobotLine.default_color.a = float(value+10)/50
 
 func validate() -> String:
+	const TOLERANCE = 10
 	var player: Line2D = $RobotLine
 	var goal: Line2D = $GoalLine
 	
 	for i in range(0, player.get_point_count()):
 		var p_pos := player.get_point_position(i)
 		var g_pos := goal.get_point_position(i)
-		if p_pos.distance_to(g_pos) > 0.5:
+		if p_pos.distance_to(g_pos) > TOLERANCE:
 			return "image not aligned"
 	return ""

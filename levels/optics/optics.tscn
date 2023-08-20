@@ -112,5 +112,5 @@ rotation = -0.118682
 
 [node name="LaserSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ntgby")
-volume_db = -30.0
+volume_db = -40.0
 autoplay = true

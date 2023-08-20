@@ -73,3 +73,4 @@ position = Vector2(127, 108)
 [node name="Cables" type="Node2D" parent="."]
 
 [node name="CableIn" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
