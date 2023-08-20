@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://337oa506glvi"]
+[gd_scene load_steps=9 format=3 uid="uid://337oa506glvi"]
 
 [ext_resource type="Script" path="res://levels/optics/optics.gd" id="1_66lwc"]
 [ext_resource type="Texture2D" uid="uid://clf1wnq1qt3mp" path="res://assets/visual/laser.png" id="2_fcxso"]
@@ -7,8 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://dvbeqb2omfvyo" path="res://components/optics/Wall.tscn" id="5_7uqgw"]
 [ext_resource type="AudioStream" uid="uid://upyxkgpooyb8" path="res://assets/audio/sine.mp3" id="6_ntgby"]
 
+[sub_resource type="Gradient" id="Gradient_dvs7w"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gdhdf"]
+gradient = SubResource("Gradient_dvs7w")
+
 [node name="Optics" type="Node2D"]
 script = ExtResource("1_66lwc")
+
+[node name="Canvas" type="Sprite2D" parent="."]
+position = Vector2(160, 80)
+scale = Vector2(1.25, 160)
+texture = SubResource("GradientTexture1D_gdhdf")
 
 [node name="RayCast" type="RayCast2D" parent="."]
 position = Vector2(20, 75)

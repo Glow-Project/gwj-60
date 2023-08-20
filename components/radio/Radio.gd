@@ -16,7 +16,7 @@ var songs: Array[Dictionary] = [
 ]
 
 func play_song() -> void:
-	var selected = songs[randi_range(0, len(songs))]
+	var selected = songs[randi_range(0, len(songs) - 1)]
 	stream = selected["stream"]
 	emit_signal("song_selected", selected)
 	play()

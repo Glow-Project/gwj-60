@@ -70,3 +70,6 @@ func _on_brain_minigame_select() -> void:
 
 func _on_radio_song_selected(song) -> void:
 	radio_display.set_song(song)
+
+func _on_tutorial_card_select() -> void:
+	$MinigameViewport.minigame = null
