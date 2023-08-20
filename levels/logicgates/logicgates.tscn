@@ -1,23 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cea60p5gkpqr6"]
+[gd_scene load_steps=4 format=3 uid="uid://cea60p5gkpqr6"]
 
 [ext_resource type="Script" path="res://levels/logicgates/logicgates.gd" id="1_pyl2h"]
 [ext_resource type="PackedScene" uid="uid://xefx38pnhca" path="res://components/logicgates/gate.tscn" id="1_sl0af"]
 [ext_resource type="PackedScene" uid="uid://mponf2h3fpq4" path="res://components/logicgates/GateConnection.tscn" id="2_hem1n"]
 
-[sub_resource type="Gradient" id="Gradient_u54c8"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.0352941, 0, 0.164706, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qi7st"]
-gradient = SubResource("Gradient_u54c8")
-
 [node name="LogicGates" type="Node2D"]
 script = ExtResource("1_pyl2h")
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(160.5, 79.875)
-scale = Vector2(1.25391, 160.25)
-texture = SubResource("GradientTexture1D_qi7st")
 
 [node name="GateConnectionIn1Or2" parent="." node_paths=PackedStringArray("source", "destination") instance=ExtResource("2_hem1n")]
 source = NodePath("../In1")
@@ -74,6 +62,7 @@ destination = NodePath("../And3")
 [node name="In1" parent="." instance=ExtResource("1_sl0af")]
 position = Vector2(20, 20)
 scale = Vector2(0.4, 0.4)
+type = 6
 
 [node name="Not" parent="." node_paths=PackedStringArray("input1") instance=ExtResource("1_sl0af")]
 position = Vector2(75.8, 19.8)
@@ -84,6 +73,7 @@ input1 = NodePath("../GateConnectionOr2Not")
 [node name="In2" parent="." instance=ExtResource("1_sl0af")]
 position = Vector2(20, 56)
 scale = Vector2(0.4, 0.4)
+type = 6
 
 [node name="And" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
 position = Vector2(109.8, 40.8)
@@ -100,6 +90,7 @@ input1 = NodePath("../GateConnectionAnd2Out")
 [node name="In3" parent="." instance=ExtResource("1_sl0af")]
 position = Vector2(20, 93)
 scale = Vector2(0.4, 0.4)
+type = 6
 
 [node name="Or" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
 position = Vector2(76, 65)
@@ -129,6 +120,7 @@ input2 = NodePath("../GateConnectionIn2Or2")
 [node name="In4" parent="." instance=ExtResource("1_sl0af")]
 position = Vector2(20, 132)
 scale = Vector2(0.4, 0.4)
+type = 6
 
 [node name="And3" parent="." node_paths=PackedStringArray("input1", "input2") instance=ExtResource("1_sl0af")]
 position = Vector2(90, 132)
